@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\NotifyPropertyChangedBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\SerializableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocalizationModule\LocalizationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\Debug.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\LogData.cs" />
