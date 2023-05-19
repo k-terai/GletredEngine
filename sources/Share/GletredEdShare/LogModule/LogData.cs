@@ -9,7 +9,7 @@ using GletredEdShare.CoreModule;
 namespace GletredEdShare.LogModule
 {
     [DataContract]
-    [Serialization.Serialize(Serialization.SerializeAttribute.SerializeType.Json)]
+    [SerializationModule.Serialize(SerializationModule.SerializeAttribute.SerializeType.Json)]
     public sealed record LogData : SerializableBase
     {
         [DataContract]

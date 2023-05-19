@@ -18,5 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\Debug.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\LogData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\JsonSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\SerializeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\Serializer.cs" />
   </ItemGroup>
 </Project>

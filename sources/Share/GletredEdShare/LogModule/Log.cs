@@ -103,7 +103,7 @@ namespace GletredEdShare.LogModule
         {
             try
             {
-                return Serialization.Serializer.Serialize(_data, filePath);
+                return SerializationModule.Serializer.Serialize(_data, filePath);
             }
             catch (IOException exception)
             {
@@ -116,7 +116,7 @@ namespace GletredEdShare.LogModule
         {
             try
             {
-                _data = Serialization.Serializer.Deserialize<LogData>(filePath);
+                _data = SerializationModule.Serializer.Deserialize<LogData>(filePath);
                 ChangeDisplay(DisplayLogType);
             }
             catch (IOException exception)
