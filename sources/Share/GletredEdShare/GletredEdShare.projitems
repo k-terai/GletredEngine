@@ -22,5 +22,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\JsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\SerializeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\Serializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowModule\DockingWindowViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowModule\IWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowModule\WindowItems.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowModule\WindowViewModel.cs" />
   </ItemGroup>
 </Project>
