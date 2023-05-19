@@ -16,4 +16,11 @@
     <DefineConstants>$(DefineConstants);WPF</DefineConstants>
   </PropertyGroup>
 
+  <Import Project="..\..\Share\GletredEdShare\GletredEdShare.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ThirdParty\AvalonDock-master\source\Components\AvalonDock.Themes.Metro\AvalonDock.Themes.Metro.csproj" />
+    <ProjectReference Include="..\..\ThirdParty\AvalonDock-master\source\Components\AvalonDock\AvalonDock.csproj" />
+  </ItemGroup>
+
 </Project>

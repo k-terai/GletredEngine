@@ -58,6 +58,8 @@ Global
 		SolutionGuid = {44B99F6D-8DCC-423F-BE2D-EF2B56E23427}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Share\GletredEdShare\GletredEdShare.projitems*{264d7233-b9fa-40ba-abc4-5122cfed1ec1}*SharedItemsImports = 5
 		Share\GletredEdShare\GletredEdShare.projitems*{2e540f1e-b60c-40f9-8750-eeaae18ba98b}*SharedItemsImports = 13
+		Share\GletredEdShare\GletredEdShare.projitems*{47001cbe-d563-46c7-b8f7-e5c9a01a96e6}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

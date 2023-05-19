@@ -15,4 +15,6 @@
     <DefineConstants>$(DefineConstants);CONSOLE</DefineConstants>
   </PropertyGroup>
 
+  <Import Project="..\..\Share\GletredEdShare\GletredEdShare.projitems" Label="Shared" />
+
 </Project>
