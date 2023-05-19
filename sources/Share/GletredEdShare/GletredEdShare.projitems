@@ -9,5 +9,11 @@
     <Import_RootNamespace>GletredEdShare</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\DelegateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\EditorCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\EditorConst.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\NotifyPropertyChangedBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\SerializableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\ViewModelBase.cs" />
   </ItemGroup>
 </Project>
