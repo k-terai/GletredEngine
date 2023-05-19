@@ -21,6 +21,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\Debug.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogModule\LogData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectModule\Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectModule\ProjectData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectModule\ProjectViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\JsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\SerializeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\Serializer.cs" />
