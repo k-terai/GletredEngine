@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Share", "Share", "{6C9F522A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Programs", "Programs", "{EDEBCF8E-C681-498E-9120-148E05713879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GletredConsole", "Programs\GletredConsole\GletredConsole.csproj", "{47001CBE-D563-46C7-B8F7-E5C9A01A96E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GletredConsole", "Programs\GletredConsole\GletredConsole.csproj", "{47001CBE-D563-46C7-B8F7-E5C9A01A96E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{A71F564E-E7FA-4E0B-99CB-07B3856ED7BE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvalonDock", "ThirdParty\AvalonDock-master\source\Components\AvalonDock\AvalonDock.csproj", "{6807E2C4-AF18-414F-B854-E33C278651FE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvalonDock.Themes.Metro", "ThirdParty\AvalonDock-master\source\Components\AvalonDock.Themes.Metro\AvalonDock.Themes.Metro.csproj", "{4B2B7ACE-0BD8-4ACA-A9BF-C1BD6F56A050}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GletredEnShare", "Share\GletredEnShare\GletredEnShare.vcxitems", "{6AE01E37-1A52-4943-9662-48BCF8E024BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,7 @@ Global
 		{47001CBE-D563-46C7-B8F7-E5C9A01A96E6} = {EDEBCF8E-C681-498E-9120-148E05713879}
 		{6807E2C4-AF18-414F-B854-E33C278651FE} = {A71F564E-E7FA-4E0B-99CB-07B3856ED7BE}
 		{4B2B7ACE-0BD8-4ACA-A9BF-C1BD6F56A050} = {A71F564E-E7FA-4E0B-99CB-07B3856ED7BE}
+		{6AE01E37-1A52-4943-9662-48BCF8E024BD} = {6C9F522A-1BC6-45D3-AABC-50ABF4B776DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {44B99F6D-8DCC-423F-BE2D-EF2B56E23427}
@@ -61,5 +64,6 @@ Global
 		Share\GletredEdShare\GletredEdShare.projitems*{264d7233-b9fa-40ba-abc4-5122cfed1ec1}*SharedItemsImports = 5
 		Share\GletredEdShare\GletredEdShare.projitems*{2e540f1e-b60c-40f9-8750-eeaae18ba98b}*SharedItemsImports = 13
 		Share\GletredEdShare\GletredEdShare.projitems*{47001cbe-d563-46c7-b8f7-e5c9a01a96e6}*SharedItemsImports = 5
+		Share\GletredEnShare\GletredEnShare.vcxitems*{6ae01e37-1a52-4943-9662-48bcf8e024bd}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal
