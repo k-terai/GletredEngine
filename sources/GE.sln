@@ -118,5 +118,6 @@ Global
 		Share\GletredEdShare\GletredEdShare.projitems*{2e540f1e-b60c-40f9-8750-eeaae18ba98b}*SharedItemsImports = 13
 		Share\GletredEdShare\GletredEdShare.projitems*{47001cbe-d563-46c7-b8f7-e5c9a01a96e6}*SharedItemsImports = 5
 		Share\GletredEnShare\GletredEnShare.vcxitems*{6ae01e37-1a52-4943-9662-48bcf8e024bd}*SharedItemsImports = 9
+		Share\GletredEnShare\GletredEnShare.vcxitems*{be952de3-2bf8-4795-8d1b-44fc42fce3ea}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
