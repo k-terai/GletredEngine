@@ -9,6 +9,14 @@
     <Import_RootNamespace>GletredEdShare</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Asset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\AssetDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\AssetViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Contexts\AssetContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Data\AssetMetaData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Folders\NormalFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Folders\Root\RootFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Textures\Texture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlModule\ControlViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlModule\IControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\DelegateCommand.cs" />
@@ -27,6 +35,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\JsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\SerializeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\Serializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TreeModule\Assets\AssetTreeComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TreeModule\TreeComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowModule\DockingWindowViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowModule\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowModule\WindowItems.cs" />
