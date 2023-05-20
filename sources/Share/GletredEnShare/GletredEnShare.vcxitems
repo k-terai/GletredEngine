@@ -14,10 +14,20 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Common.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\GObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Hasher.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Logger.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Macro.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\NonCopyable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Platform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\GObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Hasher.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Logger.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\NonCopyable.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Resource.cpp" />
   </ItemGroup>
 </Project>

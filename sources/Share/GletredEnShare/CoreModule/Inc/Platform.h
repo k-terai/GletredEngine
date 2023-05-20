@@ -4,14 +4,14 @@
 #pragma once
 
 #if _WIN32 | _WIN64 | WINAPI_FAMILY
-#define RIZA_ENGINE_PLATFORM_WINDOWS 1
+#define GLETRED_ENGINE_PLATFORM_WINDOWS 1
 #endif
 
 #if _XBOX_ONE | _GAMING_XBOX
 #define _RIZA_ENGINE_PLATFORM_XBOX 1
 #endif
 
-#if RIZA_ENGINE_PLATFORM_WINDOWS 
+#if GLETRED_ENGINE_PLATFORM_WINDOWS 
 #define WIN32_LEAN_AND_MEAN       
 #include<Windows.h> //Windows only
 #endif
@@ -21,7 +21,7 @@
 
 namespace GletredEngine
 {
-#if RIZA_ENGINE_PLATFORM_WINDOWS 
+#if GLETRED_ENGINE_PLATFORM_WINDOWS 
 	typedef TCHAR tchar;
 	typedef std::basic_string<TCHAR> tstring;  // Auto convert string (unicode,multi byte)
 	typedef LPTSTR ptstring;				   // Pointer string.
