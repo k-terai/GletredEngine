@@ -19,8 +19,80 @@
   <Import Project="..\..\Share\GletredEdShare\GletredEdShare.projitems" Label="Shared" />
 
   <ItemGroup>
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_arrow_import_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_arrow_minimize_vertical_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_broom_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_dismiss_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_error_circle_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_folder_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_folder_add_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_full_screen_maximize_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_full_screen_minimize_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_image_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_info_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_library_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_play_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_rename_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_save_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_view_desktop_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_warning_24_filled.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_window_arrow_up_24_filled.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\ThirdParty\AvalonDock-master\source\Components\AvalonDock.Themes.Metro\AvalonDock.Themes.Metro.csproj" />
     <ProjectReference Include="..\..\ThirdParty\AvalonDock-master\source\Components\AvalonDock\AvalonDock.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.ja-JP.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utilities\File\" />
+    <Folder Include="Utilities\Folder\" />
+    <Folder Include="Utilities\Save\" />
+    <Folder Include="Utilities\Explore\" />
+    <Folder Include="Commands\" />
+    <Folder Include="ProjectWizard\" />
+    <Folder Include="LogViewer\" />
+    <Folder Include="Converters\" />
+    <Folder Include="AssetBrowser\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_arrow_import_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_arrow_minimize_vertical_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_broom_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_dismiss_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_error_circle_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_folder_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_folder_add_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_full_screen_maximize_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_full_screen_minimize_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_image_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_info_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_library_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_play_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_rename_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_save_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_view_desktop_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_warning_24_filled.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_window_arrow_up_24_filled.png" />
   </ItemGroup>
 
 </Project>

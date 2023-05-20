@@ -396,4 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Local debugger setting
 /sources/Editor/GletredWpfEditor/Properties/launchSettings.json

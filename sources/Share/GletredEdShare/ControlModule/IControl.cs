@@ -8,8 +8,11 @@ using System.Windows.Controls;
 
 namespace GletredEdShare.ControlModule
 {
-    public interface IControl
+    public interface IControl<out T>
+    where T : ControlViewModel
     {
+        T ViewModel { get; }
+
 #if WPF
         UserControl Control { get; }
 #endif

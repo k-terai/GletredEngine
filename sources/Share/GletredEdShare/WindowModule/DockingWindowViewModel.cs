@@ -43,7 +43,7 @@ namespace GletredEdShare.WindowModule
 
         public DelegateCommand DockCommand { get => _dockCommand; set { _dockCommand = value; NotifyPropertyChanged(); } }
 
-        public IControl OwnerControl { get; set; } = null!;
+        public IControl<ControlViewModel> OwnerControl { get; set; } = null!;
 
         public DockingWindowViewModel()
         {
