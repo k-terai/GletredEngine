@@ -15,13 +15,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Common.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\GlobalData.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\GObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Hasher.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\IModule.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\IRenderModule.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Logger.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Macro.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\NonCopyable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Platform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Resource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Inc\RenderModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\GObject.cpp" />
@@ -29,5 +33,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Logger.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\NonCopyable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Resource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\RenderModule.cpp" />
   </ItemGroup>
 </Project>
