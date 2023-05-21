@@ -1,5 +1,7 @@
-﻿// dllmain.cpp : DLL アプリケーションのエントリ ポイントを定義します。
-#include "framework.h"
+﻿// Copyright (c) k-terai and Contributors
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+
+#include "Framework.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
