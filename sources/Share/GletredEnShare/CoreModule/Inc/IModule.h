@@ -13,6 +13,7 @@ namespace  GletredEngine
 		virtual ~IModule() = default;
 		virtual void Initialize(GlobalData* data) = 0;
 		virtual void Startup() = 0;
+		virtual void Shutdown() = 0;
 		virtual void Update() = 0;
 		virtual void Terminate() = 0;
 	};

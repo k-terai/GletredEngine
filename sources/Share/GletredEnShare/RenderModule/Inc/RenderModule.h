@@ -12,6 +12,7 @@ namespace  GletredEngine
 	public:
 		void Initialize(GlobalData* data) override;
 		void Startup() override;
+		void Shutdown() override;
 		void Update() override;
 		void Terminate() override;
 	};

@@ -19,6 +19,11 @@ GLETREDEDENGINE_API void Startup()
 
 }
 
+GLETREDEDENGINE_API void Shutdown()
+{
+	
+}
+
 GLETREDEDENGINE_API void Update()
 {
 

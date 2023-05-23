@@ -11,6 +11,12 @@ void RenderModule::Startup()
 
 }
 
+void RenderModule::Shutdown()
+{
+	
+}
+
+
 void RenderModule::Initialize(GlobalData* data)
 {
 
