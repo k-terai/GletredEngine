@@ -12,6 +12,7 @@
         xmlns:windowmodule="clr-namespace:GletredEdShare.WindowModule"
         xmlns:assetBrowser="clr-namespace:GletredWpfEditor.AssetBrowser"
         xmlns:logViewer="clr-namespace:GletredWpfEditor.LogViewer"
+        xmlns:viewport="clr-namespace:GletredWpfEditor.Viewport"
         mc:Ignorable="d"
         Title="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
         Height="{Binding Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
@@ -138,6 +139,7 @@
                     <MenuItem Header="{Binding Resources.LevelEditor, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding ChangeToolbarCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" CommandParameter="{x:Static windowmodule:ToolbarType.LevelEditor}"/>
                 </MenuItem>
                 <Separator/>
+                <MenuItem Header="{Binding Resources.Viewport, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding OpenViewportCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
                 <MenuItem Header="{Binding Resources.AssetBrowser, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding OpenAssetBrowserCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
                 <MenuItem Header="{Binding Resources.LogViewer, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding OpenLogViewerCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
             </MenuItem>
@@ -207,11 +209,11 @@
                             </DataTemplate>
                         </local:PanesTemplateSelector.LogViewerPaneTemplate>
 
-                        <!--<panes:PanesTemplateSelector.ViewportPaneTemplate>
+                        <local:PanesTemplateSelector.ViewportPaneTemplate>
                             <DataTemplate>
                                 <viewport:ViewportControl/>
                             </DataTemplate>
-                        </panes:PanesTemplateSelector.ViewportPaneTemplate>-->
+                        </local:PanesTemplateSelector.ViewportPaneTemplate>
                     </local:PanesTemplateSelector>
                 </DockingManager.LayoutItemTemplateSelector>
 

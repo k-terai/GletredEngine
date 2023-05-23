@@ -14,6 +14,7 @@ using GletredWpfEditor.ProjectWizard;
 using GletredWpfEditor.Utilities.File;
 using GletredWpfEditor.Utilities.Folder;
 using GletredWpfEditor.Utilities.Save;
+using GletredWpfEditor.Viewport;
 
 namespace GletredWpfEditor
 {
@@ -109,6 +110,11 @@ namespace GletredWpfEditor
         public static IAssetBrowserControl CreateAssetBrowserControl()
         {
             return new AssetBrowserControl();
+        }
+
+        public static IViewportControl CreateViewportControl()
+        {
+            return new ViewportControl();
         }
 
     }

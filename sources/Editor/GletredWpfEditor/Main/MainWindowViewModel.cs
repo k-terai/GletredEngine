@@ -32,6 +32,8 @@ namespace GletredWpfEditor.Main
 
         public DelegateCommand OpenAssetBrowserCommand { get; private set; } = null!;
 
+        public DelegateCommand OpenViewportCommand { get; private set; } = null!;
+
         public DelegateCommand ChangeToolbarCommand { get; private set; } = null!;
 
         public ObservableCollection<WindowItemViewModel> ToolbarElements
@@ -72,7 +74,7 @@ namespace GletredWpfEditor.Main
             OpenLogViewerCommand = new DelegateCommand(
                 (_) =>
                 {
-                    OpenToolCommand<PanesTemplateSelector.LogViewerPaneViewModel>(DockingWindowViewModel.DockingType.Document);
+                    OpenToolCommand<PanesTemplateSelector.LogViewerPaneViewModel>(DockingWindowViewModel.DockingType.Anchorable);
                 }
             );
 
@@ -80,6 +82,14 @@ namespace GletredWpfEditor.Main
                 (_) =>
                 {
                     OpenToolCommand<PanesTemplateSelector.AssetBrowserPaneViewModel>(DockingWindowViewModel.DockingType.Anchorable);
+                }
+            );
+
+
+            OpenViewportCommand = new DelegateCommand(
+                (_) =>
+                {
+                    OpenToolCommand<PanesTemplateSelector.ViewportPaneViewModel>(DockingWindowViewModel.DockingType.Document);
                 }
             );
 
