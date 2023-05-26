@@ -3,9 +3,9 @@
 
 using GletredEdShare.ControlModule;
 
-namespace GletredWpfEditor.Viewport
+namespace GletredWpfEditor.Preview
 {
-    public interface IViewportControl : IControl<ViewportControlViewModel>
+    public class PreviewControlViewModel : ControlViewModel
     {
 
     }

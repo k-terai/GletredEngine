@@ -219,6 +219,9 @@
   <data name="OpenProject" xml:space="preserve">
     <value>Open Project</value>
   </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
   <data name="ProjectLocation" xml:space="preserve">
     <value>Project Location</value>
   </data>

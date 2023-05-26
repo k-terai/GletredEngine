@@ -13,7 +13,7 @@
         xmlns:windowmodule="clr-namespace:GletredEdShare.WindowModule"
         xmlns:assetBrowser="clr-namespace:GletredWpfEditor.AssetBrowser"
         xmlns:logViewer="clr-namespace:GletredWpfEditor.LogViewer"
-        xmlns:viewport="clr-namespace:GletredWpfEditor.Viewport"
+        xmlns:viewport="clr-namespace:GletredWpfEditor.Preview"
         Title="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
         Height="{Binding Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
         Width="{Binding Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
@@ -135,6 +135,7 @@
             <MenuItem Style="{DynamicResource CustomMenuItemStyle}" Header="{Binding Resources.View, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22">
                 <MenuItem Header="{Binding Resources.AssetBrowser, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" IsCheckable="True" IsChecked="{Binding EnableAssetBrowser,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                 <MenuItem Header="{Binding Resources.LogViewer, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" IsCheckable="True" IsChecked="{Binding EnableLogViewer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <MenuItem Header="{Binding Resources.Preview, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" IsCheckable="True" IsChecked="{Binding EnablePreview,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
             </MenuItem>
             <MenuItem Style="{DynamicResource CustomMenuItemStyle}" Header="{Binding Resources.Game, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22">
                 <MenuItem Header="MenuItem"/>

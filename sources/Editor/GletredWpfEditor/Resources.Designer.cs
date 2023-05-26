@@ -367,6 +367,15 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
+        ///   Preview に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Preview {
+            get {
+                return ResourceManager.GetString("Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Project Location に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ProjectLocation {
