@@ -20,7 +20,7 @@ namespace GletredWpfEditor
 {
     public static class EditorManager
     {
-        public const string MainWindowUriPath = "Main/MainWindow.xaml";
+        public const string MainWindowUriPath = "Main/MainTabWindow.xaml";
 
         public static IMainWindow MainWindow => (Application.Current.MainWindow as IMainWindow)!;
 
