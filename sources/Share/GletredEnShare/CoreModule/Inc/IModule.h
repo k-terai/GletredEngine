@@ -4,7 +4,7 @@
 #pragma once
 #include "CoreModule/Inc/GlobalData.h"
 
-namespace  GletredEngine
+namespace GletredEngine
 {
 	class IModule
 	{
