@@ -4,6 +4,7 @@
 #pragma once
 #include <mutex>
 #include "CoreModule/Inc/Singleton.h"
+#include "d3d12.h"
 
 namespace GletredEngine
 {
