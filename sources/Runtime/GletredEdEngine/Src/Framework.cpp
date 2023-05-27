@@ -3,15 +3,18 @@
 
 #include "Framework.h"
 #include "CoreModule/Inc/GlobalData.h"
+#include "FrameworkModule/Inc/FrameworkModule.h"
 
 using namespace  GletredEngine;
 using namespace  std;
 
-GlobalData Data;
+GlobalData globalData;
+FrameworkModule framework;
+
 
 GLETREDEDENGINE_API void Initialize(HWND windowHandle)
 {
-
+	framework.Initialize(&globalData);
 }
 
 GLETREDEDENGINE_API void Startup()

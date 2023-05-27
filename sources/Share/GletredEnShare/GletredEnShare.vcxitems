@@ -26,8 +26,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Platform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Singleton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)FrameworkModule\Inc\FrameworkModule.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Inc\RenderModule.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\D3D12Manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\GObject.cpp" />
@@ -35,7 +36,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Logger.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\NonCopyable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Resource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\D3D12Manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)FrameworkModule\Src\FrameworkModule.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\RenderModule.cpp" />
   </ItemGroup>
 </Project>
