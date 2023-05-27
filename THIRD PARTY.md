@@ -2,6 +2,10 @@
 GletredEngine uses the following open-source products.
 
 ## Runtime (Windows)
+- [DirectX Tool Kit for DirectX 12](https://github.com/microsoft/DirectXTK12)  
+  MIT License   
+  Copyright (c) Microsoft Corporation  
+
 
 ## Editor (Windows)
 
