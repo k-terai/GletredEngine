@@ -5,100 +5,28 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GletredEdShare.CoreModule;
 using GletredEdShare.WindowModule;
-using GletredWpfEditor.AssetBrowser;
-using GletredWpfEditor.LogViewer;
 
 
 namespace GletredWpfEditor.Main
 {
     public class MainWindowViewModel : WindowViewModel
     {
-
-        private ObservableCollection<DockingWindowViewModel> _dockingWindows = null!;
-
-        #region MainTabWindow
-
-        private int _selectTabIndex;
-        private bool _enableAssetBrowser;
-        private bool _enableLogViewer;
-
-        public bool EnableAssetBrowser
-        {
-            get => _enableAssetBrowser;
-            set
-            {
-                _enableAssetBrowser = value;
-                switch (value)
-                {
-                    case true when DockingWindows.Count(t => t.OwnerControl is IAssetBrowserControl) == 0:
-                        DockingWindows.Add(new DockingWindowViewModel()
-                        {
-                            Name = Resources.AssetBrowser,
-                            IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_AssetBrowser),
-                            OwnerControl = EditorManager.CreateAssetBrowserControl()
-                        });
-                        SelectTabIndex = DockingWindows.Count - 1;
-                        break;
-                    case false when DockingWindows.Count(t => t.OwnerControl is IAssetBrowserControl) != 0:
-                        DockingWindows.Remove(DockingWindows.First(t => t.OwnerControl is IAssetBrowserControl));
-                        break;
-                }
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool EnableLogViewer
-        {
-            get => _enableLogViewer;
-            set
-            {
-                _enableLogViewer = value;
-                switch (value)
-                {
-                    case true when DockingWindows.Count(t => t.OwnerControl is ILogViewerControl) == 0:
-                        DockingWindows.Add(new DockingWindowViewModel()
-                        {
-                            Name = Resources.LogViewer,
-                            IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_LogViewer),
-                            OwnerControl = EditorManager.CreateLogViewerControl()
-                        });
-                        break;
-                    case false when DockingWindows.Count(t => t.OwnerControl is ILogViewerControl) != 0:
-                        DockingWindows.Remove(DockingWindows.First(t => t.OwnerControl is ILogViewerControl));
-                        break;
-                }
-                NotifyPropertyChanged();
-            }
-        }
-
-        public int SelectTabIndex
-        {
-            get => _selectTabIndex;
-            set
-            {
-                _selectTabIndex = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private void InitializeTab()
-        {
-            EnableAssetBrowser = true;
-            EnableLogViewer = true;
-        }
-
-        #endregion
-
-        #region MainWindow
-
         private DockingWindowViewModel _activeContent = null!;
+        private ObservableCollection<DockingWindowViewModel> _dockingWindows = null!;
         private ObservableCollection<DockingWindowViewModel> _anchorables = null!;
         private ObservableCollection<DockingWindowViewModel> _documents = null!;
+
         private ObservableCollection<WindowItemViewModel> _toolbarElements = null!;
+
+        public IMainWindow MainWindow { get; set; } = null!;
+
+        public ObservableCollection<DockingWindowViewModel> DockingWindows { get => _dockingWindows; set { _dockingWindows = value; NotifyPropertyChanged(); } }
 
         public ObservableCollection<DockingWindowViewModel> Anchorables { get => _anchorables; set { _anchorables = value; NotifyPropertyChanged(); } }
 
         public ObservableCollection<DockingWindowViewModel> Documents { get => _documents; set { _documents = value; NotifyPropertyChanged(); } }
+
+        public DockingWindowViewModel ActiveContent { get => _activeContent; set { _activeContent = value; NotifyPropertyChanged(); } }
 
         public DelegateCommand OpenLogViewerCommand { get; private set; } = null!;
 
@@ -107,9 +35,6 @@ namespace GletredWpfEditor.Main
         public DelegateCommand OpenViewportCommand { get; private set; } = null!;
 
         public DelegateCommand ChangeToolbarCommand { get; private set; } = null!;
-
-        public DockingWindowViewModel ActiveContent { get => _activeContent; set { _activeContent = value; NotifyPropertyChanged(); } }
-
 
         public ObservableCollection<WindowItemViewModel> ToolbarElements
         {
@@ -120,55 +45,6 @@ namespace GletredWpfEditor.Main
                 NotifyPropertyChanged();
             }
         }
-
-
-        private void OpenToolCommand<T>(DockingWindowViewModel.DockingType dockingType)
-            where T : DockingWindowViewModel, new()
-        {
-            var tool = DockingWindows.FirstOrDefault(t => t is T);
-
-            if (tool == null)
-            {
-                tool = new T();
-                tool.Type = dockingType;
-
-                switch (tool.Type)
-                {
-                    case DockingWindowViewModel.DockingType.Anchorable:
-                        {
-                            tool.CloseCommand = new DelegateCommand(_ =>
-                            {
-                                DockingWindows.Remove(tool);
-                                Anchorables.Remove(tool);
-                            });
-                            Anchorables.Add(tool);
-                        }
-                        break;
-                    case DockingWindowViewModel.DockingType.Document:
-                        {
-                            tool.CloseCommand = new DelegateCommand(_ =>
-                            {
-                                DockingWindows.Remove(tool);
-                                Documents.Remove(tool);
-                            });
-                            Documents.Add(tool);
-                        }
-                        break;
-                }
-
-                DockingWindows.Add(tool);
-            }
-
-            tool.IsSelected = true;
-            ActiveContent = tool;
-        }
-
-        #endregion
-
-
-        public IMainWindow MainWindow { get; set; } = null!;
-
-        public ObservableCollection<DockingWindowViewModel> DockingWindows { get => _dockingWindows; set { _dockingWindows = value; NotifyPropertyChanged(); } }
 
 
         public MainWindowViewModel()
@@ -187,7 +63,9 @@ namespace GletredWpfEditor.Main
             Documents = new ObservableCollection<DockingWindowViewModel>();
 
             InitCommands();
-            InitializeTab();
+            ChangeToolbarCommand.SafeExecute(true, ToolbarType.Main);
+            OpenLogViewerCommand.SafeExecute(true, true);
+            OpenAssetBrowserCommand.SafeExecute(true, true);
         }
 
 
@@ -246,6 +124,47 @@ namespace GletredWpfEditor.Main
 
                     }
                 });
+        }
+
+        private void OpenToolCommand<T>(DockingWindowViewModel.DockingType dockingType)
+            where T : DockingWindowViewModel, new()
+        {
+            var tool = DockingWindows.FirstOrDefault(t => t is T);
+
+            if (tool == null)
+            {
+                tool = new T();
+                tool.Type = dockingType;
+
+                switch (tool.Type)
+                {
+                    case DockingWindowViewModel.DockingType.Anchorable:
+                        {
+                            tool.CloseCommand = new DelegateCommand(_ =>
+                            {
+                                DockingWindows.Remove(tool);
+                                Anchorables.Remove(tool);
+                            });
+                            Anchorables.Add(tool);
+                        }
+                        break;
+                    case DockingWindowViewModel.DockingType.Document:
+                        {
+                            tool.CloseCommand = new DelegateCommand(_ =>
+                            {
+                                DockingWindows.Remove(tool);
+                                Documents.Remove(tool);
+                            });
+                            Documents.Add(tool);
+                        }
+                        break;
+                }
+
+                DockingWindows.Add(tool);
+            }
+
+            tool.IsSelected = true;
+            ActiveContent = tool;
         }
 
     }
