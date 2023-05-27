@@ -134,10 +134,6 @@
             </MenuItem>
             <MenuItem Style="{DynamicResource CustomMenuItemStyle}" Header="{Binding Resources.View, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22">
                 <MenuItem Header="{Binding Resources.ToggleToolBar, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" IsCheckable="True" IsChecked="{Binding EnableToolBar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                <MenuItem Header="{Binding Resources.Toolbar, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}">
-                    <MenuItem Header="{Binding Resources.Main, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding ChangeToolbarCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" CommandParameter="{x:Static windowmodule:ToolbarType.Main}"/>
-                    <MenuItem Header="{Binding Resources.LevelEditor, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding ChangeToolbarCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" CommandParameter="{x:Static windowmodule:ToolbarType.LevelEditor}"/>
-                </MenuItem>
                 <Separator/>
                 <MenuItem Header="{Binding Resources.Viewport, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding OpenViewportCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
                 <MenuItem Header="{Binding Resources.AssetBrowser, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding OpenAssetBrowserCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
@@ -161,101 +157,64 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <ToolBar Height="30"  d:LayoutOverrides="HorizontalAlignment, Height" Style="{DynamicResource CustomToolBarStyle}" Background="{DynamicResource DarkSurfaceColor01dpBrush}" VerticalAlignment="Top"
-                  ItemsSource="{Binding ToolbarElements,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="0" 
                      Visibility="{Binding EnableToolBar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BoolToVisibilityConverter}}">
-                <ToolBar.Resources>
-                    <DataTemplate DataType="{x:Type windowmodule:ButtonViewModel}">
-                        <Button ToolTip="{Binding ToolTip}"
-                            Command="{Binding Path=Command,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
-                            Style="{DynamicResource CustomButtonWithImageStyle}"
-                            Background="{DynamicResource DarkSurfaceColor01dpBrush}" 
-                            Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
-                            BorderBrush="{DynamicResource DarkSurfaceColor02dpBrush}"
-                            Width="{Binding Width,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="3,0,0,0"
-                            >
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding ImageUri}" Opacity="{DynamicResource DarkImageOpacity}"/>
-                                    <TextBlock Text="{Binding Name,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"/>
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </DataTemplate>
-                </ToolBar.Resources>
+                <Button Style="{StaticResource CustomButtonWithImageStyle}">
+                    <Image Source="{Binding Resources.Icon_Save,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button>
+                <Button Style="{StaticResource CustomButtonWithImageStyle}">
+                    <Image Source="{Binding Resources.Icon_Open,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button>
             </ToolBar>
-            <DockingManager Name="DockingMgr"
-                            Grid.Row="1"
-                            AllowMixedOrientation="True"
-                            BorderThickness="1" Background="{DynamicResource DarkSurfaceColor00dpBrush}"
-                        AnchorablesSource="{Binding Anchorables}"
-			            DocumentsSource="{Binding Documents}"
-                        ActiveContent="{Binding ActiveContent, Converter={StaticResource ActiveContentConverter}, Mode=TwoWay}" Margin="0,0,0,22">
-                <DockingManager.Theme>
-                    <MetroTheme/>
-                </DockingManager.Theme>
+            <Grid Grid.Row="1" Margin="0,0,0,22">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GridSplitter d:LayoutOverrides="VerticalAlignment" Background="{DynamicResource DarkSurfaceColor00dpBrush}" Width="5"/>
+                <TabControl Grid.Column="0" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding LeftTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
+                            SelectedIndex="{Binding LeftTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0">
 
-                <DockingManager.LayoutItemTemplateSelector>
-                    <local:PanesTemplateSelector>
-                        <local:PanesTemplateSelector.AssetBrowserPaneTemplate>
-                            <DataTemplate>
-                                <assetBrowser:AssetBrowserControl/>
-                            </DataTemplate>
-                        </local:PanesTemplateSelector.AssetBrowserPaneTemplate>
+                    <TabControl.ItemContainerStyle>
+                        <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource CustomTabItemStyle}">
+                            <Setter Property="Height" Value="22" />
+                        </Style>
+                    </TabControl.ItemContainerStyle>
 
-                        <local:PanesTemplateSelector.LogViewerPaneTemplate>
-                            <DataTemplate>
-                                <logViewer:LogViewerControl/>
-                            </DataTemplate>
-                        </local:PanesTemplateSelector.LogViewerPaneTemplate>
+                    <TabControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"/>
+                        </DataTemplate>
+                    </TabControl.ItemTemplate>
 
-                        <local:PanesTemplateSelector.ViewportPaneTemplate>
-                            <DataTemplate>
-                                <viewport:ViewportControl/>
-                            </DataTemplate>
-                        </local:PanesTemplateSelector.ViewportPaneTemplate>
-                    </local:PanesTemplateSelector>
-                </DockingManager.LayoutItemTemplateSelector>
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding OwnerControl.Control,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
+                <TabControl Grid.Column="1" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding RightTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
+                            SelectedIndex="{Binding RightTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0">
 
-                <DockingManager.LayoutItemContainerStyleSelector>
-                    <local:PanesStyleSelector>
-                        <local:PanesStyleSelector.AnchorableStyle>
-                            <Style TargetType="{x:Type LayoutAnchorableItem}">
-                                <Setter Property="Title" Value="{Binding Model.Title}" />
-                                <Setter Property="CanClose" Value="{Binding Model.CanClose}" />
-                                <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
-                                <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
-                                <Setter Property="Visibility" Value="{Binding Model.IsVisible, ConverterParameter={StaticResource False}, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}" />
-                                <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
-                                <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}" />
-                                <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}" />
-                            </Style>
-                        </local:PanesStyleSelector.AnchorableStyle>
-                        <local:PanesStyleSelector.DocumentStyle>
-                            <Style TargetType="{x:Type LayoutItem}">
-                                <Setter Property="Title" Value="{Binding Model.Title}" />
-                                <Setter Property="CanClose" Value="{Binding Model.CanClose}" />
-                                <Setter Property="ToolTip" Value="{Binding Model.FilePath}" />
-                                <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
-                                <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
-                                <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
-                            </Style>
-                        </local:PanesStyleSelector.DocumentStyle>
-                    </local:PanesStyleSelector>
-                </DockingManager.LayoutItemContainerStyleSelector>
+                    <TabControl.ItemContainerStyle>
+                        <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource CustomTabItemStyle}">
+                            <Setter Property="Height" Value="22" />
+                        </Style>
+                    </TabControl.ItemContainerStyle>
 
-                <DockingManager.LayoutUpdateStrategy>
-                    <service:LayoutInitializer />
-                </DockingManager.LayoutUpdateStrategy>
+                    <TabControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"/>
+                        </DataTemplate>
+                    </TabControl.ItemTemplate>
 
-                <LayoutRoot x:Name="LayoutRoot">
-                    <LayoutPanel Orientation="Horizontal">
-                        <LayoutAnchorablePane Name="LeftPane" DockWidth="150"/>
-                        <LayoutDocumentPane x:Name="CenterDocument" />
-                        <LayoutAnchorablePane Name="RightPane" DockWidth="150"/>
-                    </LayoutPanel>
-                </LayoutRoot>
-            </DockingManager>
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding OwnerControl.Control,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
+            </Grid>
             <StatusBar Grid.Row="1" Height="22" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Background="{DynamicResource DarkSurfaceColor01dpBrush}">
 
             </StatusBar>

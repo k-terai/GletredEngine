@@ -151,13 +151,13 @@
     <value>ic_fluent_library_24_filled.png</value>
   </data>
   <data name="Icon_Broom" xml:space="preserve">
-    <value>ic_fluent_broom_24_filled.png</value>
+    <value>ic_fluent_broom_24_regular.png</value>
   </data>
   <data name="Icon_Close" xml:space="preserve">
     <value>ic_fluent_dismiss_24_filled.png</value>
   </data>
   <data name="Icon_Error" xml:space="preserve">
-    <value>ic_fluent_error_circle_24_filled.png</value>
+    <value>ic_fluent_error_circle_24_regular.png</value>
   </data>
   <data name="Icon_Folder" xml:space="preserve">
     <value>ic_fluent_folder_24_filled.png</value>
@@ -166,7 +166,7 @@
     <value>ic_fluent_arrow_import_24_filled.png</value>
   </data>
   <data name="Icon_Info" xml:space="preserve">
-    <value>ic_fluent_info_24_filled.png</value>
+    <value>ic_fluent_info_24_regular.png</value>
   </data>
   <data name="Icon_LogViewer" xml:space="preserve">
     <value>ic_fluent_view_desktop_24_filled.png</value>
@@ -176,6 +176,9 @@
   </data>
   <data name="Icon_Minimize" xml:space="preserve">
     <value>ic_fluent_arrow_minimize_vertical_24_filled.png</value>
+  </data>
+  <data name="Icon_Open" xml:space="preserve">
+    <value>ic_fluent_folder_open_24_regular.png</value>
   </data>
   <data name="Icon_Play" xml:space="preserve">
     <value>ic_fluent_play_24_filled.png</value>
@@ -187,7 +190,7 @@
     <value>ic_fluent_full_screen_minimize_24_filled.png</value>
   </data>
   <data name="Icon_Save" xml:space="preserve">
-    <value>ic_fluent_save_24_filled.png</value>
+    <value>ic_fluent_save_24_regular.png</value>
   </data>
   <data name="Icon_Texture" xml:space="preserve">
     <value>ic_fluent_image_24_filled.png</value>
@@ -196,7 +199,7 @@
     <value>ic_fluent_window_arrow_up_24_filled.png</value>
   </data>
   <data name="Icon_Warning" xml:space="preserve">
-    <value>ic_fluent_warning_24_filled.png</value>
+    <value>ic_fluent_warning_24_regular.png</value>
   </data>
   <data name="Import" xml:space="preserve">
     <value>Import</value>

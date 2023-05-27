@@ -160,7 +160,7 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
-        ///   ic_fluent_broom_24_filled.png に類似しているローカライズされた文字列を検索します。
+        ///   ic_fluent_broom_24_regular.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Broom {
             get {
@@ -178,7 +178,7 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
-        ///   ic_fluent_error_circle_24_filled.png に類似しているローカライズされた文字列を検索します。
+        ///   ic_fluent_error_circle_24_regular.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Error {
             get {
@@ -205,7 +205,7 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
-        ///   ic_fluent_info_24_filled.png に類似しているローカライズされた文字列を検索します。
+        ///   ic_fluent_info_24_regular.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Info {
             get {
@@ -241,6 +241,15 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
+        ///   ic_fluent_folder_open_24_regular.png に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Icon_Open {
+            get {
+                return ResourceManager.GetString("Icon_Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ic_fluent_play_24_filled.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Play {
@@ -268,7 +277,7 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
-        ///   ic_fluent_save_24_filled.png に類似しているローカライズされた文字列を検索します。
+        ///   ic_fluent_save_24_regular.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Save {
             get {
@@ -295,7 +304,7 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
-        ///   ic_fluent_warning_24_filled.png に類似しているローカライズされた文字列を検索します。
+        ///   ic_fluent_warning_24_regular.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Warning {
             get {
