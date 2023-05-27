@@ -4,17 +4,17 @@
 using System;
 using System.Windows.Controls;
 
-namespace GletredWpfEditor.Preview
+namespace GletredWpfEditor.Viewport
 {
     /// <summary>
     /// ViewportControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class PreviewControl : IPreviewControl
+    public partial class ViewportControl : IViewportControl
     {
-        public PreviewControlViewModel ViewModel => DataContext as PreviewControlViewModel ?? throw new InvalidOperationException();
+        public ViewportControlViewModel ViewModel => DataContext as ViewportControlViewModel ?? throw new InvalidOperationException();
         public UserControl Control => this;
 
-        public PreviewControl()
+        public ViewportControl()
         {
             InitializeComponent();
         }

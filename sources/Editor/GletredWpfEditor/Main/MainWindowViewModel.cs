@@ -7,7 +7,6 @@ using GletredEdShare.CoreModule;
 using GletredEdShare.WindowModule;
 using GletredWpfEditor.AssetBrowser;
 using GletredWpfEditor.LogViewer;
-using GletredWpfEditor.Preview;
 
 
 namespace GletredWpfEditor.Main
@@ -22,7 +21,6 @@ namespace GletredWpfEditor.Main
         private int _selectTabIndex;
         private bool _enableAssetBrowser;
         private bool _enableLogViewer;
-        private bool _enablePreview;
 
         public bool EnableAssetBrowser
         {
@@ -64,35 +62,9 @@ namespace GletredWpfEditor.Main
                             IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_LogViewer),
                             OwnerControl = EditorManager.CreateLogViewerControl()
                         });
-                        SelectTabIndex = DockingWindows.Count - 1;
                         break;
                     case false when DockingWindows.Count(t => t.OwnerControl is ILogViewerControl) != 0:
                         DockingWindows.Remove(DockingWindows.First(t => t.OwnerControl is ILogViewerControl));
-                        break;
-                }
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool EnablePreview
-        {
-            get => _enablePreview;
-            set
-            {
-                _enablePreview = value;
-                switch (value)
-                {
-                    case true when DockingWindows.Count(t => t.OwnerControl is IPreviewControl) == 0:
-                        DockingWindows.Add(new DockingWindowViewModel()
-                        {
-                            Name = Resources.Preview,
-                            IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_LogViewer),
-                            OwnerControl = EditorManager.CreatePreviewControl()
-                        });
-                        SelectTabIndex = DockingWindows.Count - 1;
-                        break;
-                    case false when DockingWindows.Count(t => t.OwnerControl is IPreviewControl) != 0:
-                        DockingWindows.Remove(DockingWindows.First(t => t.OwnerControl is IPreviewControl));
                         break;
                 }
                 NotifyPropertyChanged();

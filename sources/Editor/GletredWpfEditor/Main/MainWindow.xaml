@@ -12,7 +12,7 @@
         xmlns:windowmodule="clr-namespace:GletredEdShare.WindowModule"
         xmlns:assetBrowser="clr-namespace:GletredWpfEditor.AssetBrowser"
         xmlns:logViewer="clr-namespace:GletredWpfEditor.LogViewer"
-        xmlns:viewport="clr-namespace:GletredWpfEditor.Preview"
+        xmlns:viewport="clr-namespace:GletredWpfEditor.Viewport"
         mc:Ignorable="d"
         Title="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
         Height="{Binding Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
@@ -211,7 +211,7 @@
 
                         <local:PanesTemplateSelector.ViewportPaneTemplate>
                             <DataTemplate>
-                                <viewport:PreviewControl/>
+                                <viewport:ViewportControl/>
                             </DataTemplate>
                         </local:PanesTemplateSelector.ViewportPaneTemplate>
                     </local:PanesTemplateSelector>
