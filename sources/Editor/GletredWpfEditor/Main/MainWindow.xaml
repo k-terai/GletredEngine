@@ -56,8 +56,8 @@
         <Button x:Name="MinimizationButton" HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome ="True"
                 Margin="0,0,94,0" ToolTip="Minimization" VerticalAlignment="Top" Width="47" Height="25" 
                 Click="MinimizationButton_Click"  d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"
-                Background="{DynamicResource DarkSurfaceColor00dpBrush}" BorderBrush="{DynamicResource WindowBackground}"
-                Opacity="{DynamicResource DarkImageOpacity}">
+                Background="{x:Null}"
+                Opacity="{DynamicResource DarkImageOpacity}" BorderBrush="{x:Null}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CustomButtonWithImageStyle}">
                     <Style.Triggers>
@@ -140,7 +140,8 @@
                 <MenuItem Header="{Binding Resources.LogViewer, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{Binding OpenLogViewerCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
             </MenuItem>
             <MenuItem Style="{DynamicResource CustomMenuItemStyle}" Header="{Binding Resources.Game, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22">
-                <MenuItem Header="MenuItem"/>
+                <MenuItem Header="{Binding Resources.LaunchRuntime, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{x:Static command:EditorCommand.LaunchRuntimeCommand}" />
+                <MenuItem Header="{Binding Resources.TerminateRuntime, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22" Command="{x:Static command:EditorCommand.TerminateRuntimeCommand}" />
             </MenuItem>
             <MenuItem Style="{DynamicResource CustomMenuItemStyle}" Header="{Binding Resources.Window, Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}" Height="22">
                 <MenuItem Header="MenuItem"/>

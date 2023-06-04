@@ -204,6 +204,9 @@
   <data name="Import" xml:space="preserve">
     <value>インポート</value>
   </data>
+  <data name="LaunchRuntime" xml:space="preserve">
+    <value>ランタイム起動</value>
+  </data>
   <data name="LevelEditor" xml:space="preserve">
     <value>レベルエディタ</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="SelectProjectPath" xml:space="preserve">
     <value>プロジェクトの保存場所を選択してください。</value>
+  </data>
+  <data name="TerminateRuntime" xml:space="preserve">
+    <value>ランタイムを終了</value>
   </data>
   <data name="ToggleToolBar" xml:space="preserve">
     <value>ツールバー表示切替</value>

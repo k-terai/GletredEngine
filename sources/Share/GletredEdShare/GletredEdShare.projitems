@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AssetModule\Textures\Texture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlModule\ControlViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlModule\IControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreModule\CoreUtility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\DelegateCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\EditorCommon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreModule\EditorConst.cs" />
@@ -35,6 +36,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ProjectModule\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProjectModule\ProjectData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProjectModule\ProjectViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RuntimeModule\Runtime.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\JsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\SerializeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationModule\Serializer.cs" />

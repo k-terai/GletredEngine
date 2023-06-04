@@ -83,7 +83,6 @@
     <Folder Include="Utilities\Folder\" />
     <Folder Include="Utilities\Save\" />
     <Folder Include="Utilities\Explore\" />
-    <Folder Include="Commands\" />
     <Folder Include="ProjectWizard\" />
     <Folder Include="LogViewer\" />
     <Folder Include="Converters\" />

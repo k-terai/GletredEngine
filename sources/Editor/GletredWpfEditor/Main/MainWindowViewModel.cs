@@ -1,10 +1,7 @@
 ﻿// Copyright (c) k-terai and Contributors
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
-using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using GletredEdShare.CoreModule;
 using GletredEdShare.WindowModule;
 
 
@@ -14,8 +11,8 @@ namespace GletredWpfEditor.Main
     {
         private int _leftTabSelectIndex;
         private int _rightTabSelectIndex;
-        private ObservableCollection<DockingWindowViewModel> _leftTab;
-        private ObservableCollection<DockingWindowViewModel> _rightTab;
+        private ObservableCollection<DockingWindowViewModel> _leftTab = null!;
+        private ObservableCollection<DockingWindowViewModel> _rightTab = null!;
 
 
         public int LeftTabSelectIndex
@@ -60,7 +57,6 @@ namespace GletredWpfEditor.Main
         }
 
 
-
         public MainWindowViewModel()
         {
             ResourceService.Current.ChangeCulture("en-US");
@@ -87,13 +83,13 @@ namespace GletredWpfEditor.Main
         {
             LeftTab = new ObservableCollection<DockingWindowViewModel>
             {
-                new DockingWindowViewModel()
+                new()
                 {
                     Name = Resources.Viewport,
                     IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_Viewport),
                     OwnerControl = EditorManager.CreateViewportControl()
                 },
-                new DockingWindowViewModel()
+                new()
                 {
                     Name = Resources.AssetBrowser,
                     IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_AssetBrowser),
@@ -106,7 +102,7 @@ namespace GletredWpfEditor.Main
         {
             RightTab = new ObservableCollection<DockingWindowViewModel>
             {
-                new DockingWindowViewModel()
+                new()
                 {
                     Name = Resources.LogViewer,
                     IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_LogViewer),

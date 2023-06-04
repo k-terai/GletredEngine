@@ -322,6 +322,15 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
+        ///   Launch Runtime に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LaunchRuntime {
+            get {
+                return ResourceManager.GetString("LaunchRuntime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Level Editor に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LevelEditor {
@@ -435,6 +444,15 @@ namespace GletredWpfEditor {
         public static string SelectProjectPath {
             get {
                 return ResourceManager.GetString("SelectProjectPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Terminate Runtime に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TerminateRuntime {
+            get {
+                return ResourceManager.GetString("TerminateRuntime", resourceCulture);
             }
         }
         

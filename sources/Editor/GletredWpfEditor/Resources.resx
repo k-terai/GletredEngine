@@ -204,6 +204,9 @@
   <data name="Import" xml:space="preserve">
     <value>Import</value>
   </data>
+  <data name="LaunchRuntime" xml:space="preserve">
+    <value>Launch Runtime</value>
+  </data>
   <data name="LevelEditor" xml:space="preserve">
     <value>Level Editor</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="SelectProjectPath" xml:space="preserve">
     <value>Please select new project path.</value>
+  </data>
+  <data name="TerminateRuntime" xml:space="preserve">
+    <value>Terminate Runtime</value>
   </data>
   <data name="ToggleToolBar" xml:space="preserve">
     <value>Toggle Toolbar</value>

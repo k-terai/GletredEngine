@@ -14,6 +14,7 @@ namespace GletredWpfEditor.Commands
         {
             InitCommonCommands();
             InitProjectCommands();
+            InitRuntimeCommands();
         }
     }
 }

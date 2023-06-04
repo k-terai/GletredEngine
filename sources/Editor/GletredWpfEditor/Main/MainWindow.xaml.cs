@@ -89,7 +89,12 @@ namespace GletredWpfEditor.Main
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (EditorManager.Shutdown())
+            {
+                return;
+            }
 
+            e.Cancel = true;
         }
 
     }

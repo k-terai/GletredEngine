@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Windows;
 using GletredEdShare.AssetModule;
 using GletredEdShare.ProjectModule;
+using GletredEdShare.RuntimeModule;
 using GletredWpfEditor.AssetBrowser;
 using GletredWpfEditor.LogViewer;
 using GletredWpfEditor.Main;
@@ -56,6 +57,11 @@ namespace GletredWpfEditor
         /// <returns>Return true if shutdown success.</returns>
         public static bool Shutdown()
         {
+            if (Runtime.IsActive)
+            {
+                Runtime.TerminateEdEngine();
+            }
+
             Application.Current.Shutdown();
             return true;
         }

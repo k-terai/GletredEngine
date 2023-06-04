@@ -11,6 +11,7 @@ namespace GletredWpfEditor.Viewport
     /// </summary>
     public partial class ViewportControl : IViewportControl
     {
+        public IntPtr WindowHandle => MainForm.Handle;
         public ViewportControlViewModel ViewModel => DataContext as ViewportControlViewModel ?? throw new InvalidOperationException();
         public UserControl Control => this;
 
