@@ -23,9 +23,9 @@ namespace GletredEngine
 {
 #if GLETRED_ENGINE_PLATFORM_WINDOWS 
 	typedef TCHAR tchar;
-	typedef std::basic_string<TCHAR> tstring;  // Auto convert string (unicode,multi byte)
-	typedef LPTSTR ptstring;				   // Pointer string.
-	typedef LPCTSTR ctstring; 				   // Const string.
+	typedef std::wstring tstring;   // wide string,
+	typedef LPTSTR ptstring;        // Pointer string.
+	typedef LPCTSTR ctstring; 	    // Const string.
 	typedef signed char int8;
 	typedef unsigned char uint8;
 	typedef unsigned short int uint16;
@@ -35,6 +35,7 @@ namespace GletredEngine
 	typedef unsigned long long uint64;
 	typedef signed long long int64;
 	typedef uint32 uniqueid;
+	using WindowHandle = HWND;
 #endif
 
 }

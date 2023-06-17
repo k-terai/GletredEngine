@@ -14,25 +14,30 @@ FrameworkModule framework;
 
 GLETREDEDENGINE_API void Initialize(HWND windowHandle)
 {
+	globalData.RenderData.SupportFullScreen = false;
+	globalData.RenderData.UseWarpDevice = false;
+	globalData.RenderData.Hwnd = windowHandle;
+
 	framework.Initialize(&globalData);
+	framework.Update();
 }
 
 GLETREDEDENGINE_API void Startup()
 {
-
+	framework.Startup();
 }
 
 GLETREDEDENGINE_API void Shutdown()
 {
-	
+	framework.Shutdown();
 }
 
 GLETREDEDENGINE_API void Update()
 {
-
+	framework.Update();
 }
 
 GLETREDEDENGINE_API void Terminate()
 {
-
+	framework.Terminate();
 }

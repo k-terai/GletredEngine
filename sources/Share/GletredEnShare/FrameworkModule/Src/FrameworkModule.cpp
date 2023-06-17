@@ -10,7 +10,7 @@ RenderModule renderModule;
 
 FrameworkModule::FrameworkModule() : RenderModule(&renderModule)
 {
-	
+
 }
 
 FrameworkModule::~FrameworkModule()
@@ -26,22 +26,22 @@ void FrameworkModule::Initialize(GlobalData* data)
 
 void FrameworkModule::Startup()
 {
-	
+
 }
 
 void FrameworkModule::Shutdown()
 {
-	
+
 }
 
 void FrameworkModule::Update()
 {
-	
+	renderModule.Update();
 }
 
 void FrameworkModule::Terminate()
 {
-	
+	renderModule.Terminate();
 }
 
 

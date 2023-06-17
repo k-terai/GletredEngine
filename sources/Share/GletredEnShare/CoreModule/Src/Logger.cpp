@@ -7,7 +7,7 @@
 using namespace std;
 using namespace GletredEngine;
 
-GletredEngine::LogCallback Logger::SCallback;
+LogCallback Logger::SCallback;
 
 void Logger::Log(const LogType type, ctstring fmt, ...)
 {
@@ -25,8 +25,6 @@ bool Logger::IsFailureLog(const HRESULT hr)
 	{
 		return false;
 	}
-
-
 
 	return true;
 }

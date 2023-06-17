@@ -2,6 +2,7 @@
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
 #pragma once
+#include "CoreModule/Inc/RenderModuleData.h"
 
 namespace GletredEngine
 {
@@ -9,6 +10,8 @@ namespace GletredEngine
 
 	struct GlobalData
 	{
+		RenderModuleData RenderData;
+
 		IRenderModule* RenderModule;
 
 		void Reset()
