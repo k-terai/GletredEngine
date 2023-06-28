@@ -36,7 +36,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12RenderTarget.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderCompiler.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12X.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Shader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\GObject.cpp" />
@@ -50,6 +53,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12RenderTarget.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Shader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderCompiler.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\RenderModule.cpp" />
   </ItemGroup>
   <ItemGroup>
