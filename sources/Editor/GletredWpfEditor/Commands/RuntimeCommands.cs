@@ -21,7 +21,7 @@ namespace GletredWpfEditor.Commands
                 _ =>
                 {
                     var viewport =
-                        EditorManager.MainWindow.ViewModel.LeftTab.First(t => t.OwnerControl is IViewportControl).OwnerControl as IViewportControl;
+                        EditorManager.MainWindow.ViewModel.MainTab.First(t => t.OwnerControl is IViewportControl).OwnerControl as IViewportControl;
 
                     Debug.Assert(viewport != null, nameof(viewport) + " != null");
                     Runtime.LaunchEdEngine(viewport.WindowHandle);

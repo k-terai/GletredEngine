@@ -2,16 +2,15 @@
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
 using System.Collections.ObjectModel;
+using GletredEdShare.ControlModule;
 using GletredEdShare.WindowModule;
 
-
-namespace GletredWpfEditor.Main
+namespace GletredWpfEditor.Portal
 {
-    public class MainWindowViewModel : WindowViewModel
+    public class PortalControlViewModel : ControlViewModel
     {
         private int _mainTabSelectIndex;
         private ObservableCollection<DockingWindowViewModel> _mainTab = null!;
-
 
         public int MainTabSelectIndex
         {
@@ -34,27 +33,9 @@ namespace GletredWpfEditor.Main
             }
         }
 
-
-
-        public MainWindowViewModel()
+        public PortalControlViewModel()
         {
-            ResourceService.Current.ChangeCulture("en-US");
-
-            EnableToolBar = true;
-            //IconUri = new Uri(Resources.icon_app, UriKind.RelativeOrAbsolute);
-            MinimizeImageUri = ResourceService.Current.GetFluentIconUri(Resources.Icon_Minimize);
-            MaximizeImageUri = ResourceService.Current.GetFluentIconUri(Resources.Icon_Maximize);
-            RestoreImageUri = ResourceService.Current.GetFluentIconUri(Resources.Icon_Restore);
-            CloseImageUri = ResourceService.Current.GetFluentIconUri(Resources.Icon_Close);
-            Title = "None";
-            InitCommands();
             InitMainTab();
-        }
-
-
-        private void InitCommands()
-        {
-
         }
 
         private void InitMainTab()
@@ -63,12 +44,11 @@ namespace GletredWpfEditor.Main
             {
                 new()
                 {
-                    Name = Resources.Portal,
-                    IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_Portal),
-                    OwnerControl = EditorManager.CreatePortalControl()
+                    Name = Resources.LogViewer,
+                    IconSource = ResourceService.Current.GetFluentIconUri(Resources.Icon_LogViewer),
+                    OwnerControl = EditorManager.CreateLogViewerControl()
                 }
             };
         }
-
     }
 }

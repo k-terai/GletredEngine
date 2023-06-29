@@ -11,6 +11,7 @@ using GletredEdShare.RuntimeModule;
 using GletredWpfEditor.AssetBrowser;
 using GletredWpfEditor.LogViewer;
 using GletredWpfEditor.Main;
+using GletredWpfEditor.Portal;
 using GletredWpfEditor.ProjectWizard;
 using GletredWpfEditor.Utilities.File;
 using GletredWpfEditor.Utilities.Folder;
@@ -121,6 +122,11 @@ namespace GletredWpfEditor
         public static IViewportControl CreateViewportControl()
         {
             return new ViewportControl();
+        }
+
+        public static IPortalControl CreatePortalControl()
+        {
+            return new PortalControl();
         }
 
     }

@@ -29,6 +29,7 @@
   <Import Project="..\..\Share\GletredEdShare\GletredEdShare.projitems" Label="Shared" />
 
   <ItemGroup>
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_apps_24_regular.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_arrow_import_24_filled.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_arrow_minimize_vertical_24_filled.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_broom_24_filled.png" />
@@ -90,6 +91,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_apps_24_regular.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_arrow_import_24_filled.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_arrow_minimize_vertical_24_filled.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_broom_24_filled.png" />

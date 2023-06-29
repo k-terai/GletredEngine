@@ -259,6 +259,15 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
+        ///   ic_fluent_apps_24_regular.png に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Icon_Portal {
+            get {
+                return ResourceManager.GetString("Icon_Portal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ic_fluent_rename_24_filled.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Rename {
@@ -381,6 +390,15 @@ namespace GletredWpfEditor {
         public static string OpenProject {
             get {
                 return ResourceManager.GetString("OpenProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Portal に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Portal {
+            get {
+                return ResourceManager.GetString("Portal", resourceCulture);
             }
         }
         

@@ -15,7 +15,7 @@
         xmlns:viewport="clr-namespace:GletredWpfEditor.Viewport"
         mc:Ignorable="d"
         Title="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-        Height="{Binding Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Height="298" 
         Width="{Binding Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
         Background="{DynamicResource DarkSurfaceColor00dpBrush}" 
         WindowState="{Binding State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
@@ -161,6 +161,9 @@
                      Grid.Row="0" 
                      Visibility="{Binding EnableToolBar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BoolToVisibilityConverter}}">
                 <Button Style="{StaticResource CustomButtonWithImageStyle}">
+                    <Image Source="{Binding Resources.Icon_Portal,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button>
+                <Button Style="{StaticResource CustomButtonWithImageStyle}">
                     <Image Source="{Binding Resources.Icon_Save,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
                 </Button>
                 <Button Style="{StaticResource CustomButtonWithImageStyle}">
@@ -168,34 +171,8 @@
                 </Button>
             </ToolBar>
             <Grid Grid.Row="1" Margin="0,0,0,22">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <GridSplitter d:LayoutOverrides="VerticalAlignment" Background="{DynamicResource DarkSurfaceColor00dpBrush}" Width="5"/>
-                <TabControl Grid.Column="0" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding LeftTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
-                            SelectedIndex="{Binding LeftTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0">
-
-                    <TabControl.ItemContainerStyle>
-                        <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource CustomTabItemStyle}">
-                            <Setter Property="Height" Value="22" />
-                        </Style>
-                    </TabControl.ItemContainerStyle>
-
-                    <TabControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"/>
-                        </DataTemplate>
-                    </TabControl.ItemTemplate>
-
-                    <TabControl.ContentTemplate>
-                        <DataTemplate>
-                            <ContentControl Content="{Binding OwnerControl.Control,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
-                        </DataTemplate>
-                    </TabControl.ContentTemplate>
-                </TabControl>
-                <TabControl Grid.Column="1" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding RightTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
-                            SelectedIndex="{Binding RightTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0">
+                <TabControl Grid.Column="0" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding MainTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
+                            SelectedIndex="{Binding MainTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0">
 
                     <TabControl.ItemContainerStyle>
                         <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource CustomTabItemStyle}">

@@ -1,0 +1,47 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GletredWpfEditor.Portal"
+             xmlns:AssetBrowser="clr-namespace:GletredWpfEditor.AssetBrowser" x:Class="GletredWpfEditor.Portal.PortalControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="772" Background="{DynamicResource DarkSurfaceColor00dpBrush}">
+
+    <UserControl.DataContext>
+        <local:PortalControlViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter d:LayoutOverrides="VerticalAlignment" Background="{DynamicResource DarkSurfaceColor02dpBrush}" Width="5"/>
+        <AssetBrowser:AssetBrowserControl Margin="0,0,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <TabControl Grid.Column="1" Style="{DynamicResource CustomTabControlStyle}" 
+                    ItemsSource="{Binding MainTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
+                    SelectedIndex="{Binding MainTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                   >
+
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource CustomTabItemStyle}">
+                    <Setter Property="Height" Value="22" />
+                </Style>
+            </TabControl.ItemContainerStyle>
+
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding OwnerControl.Control,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+
+</UserControl>
