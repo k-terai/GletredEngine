@@ -33,6 +33,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ForwardSceneRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Helper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Mesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12RenderTarget.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.h" />
