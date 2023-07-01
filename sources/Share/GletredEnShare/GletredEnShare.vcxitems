@@ -29,8 +29,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Singleton.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)FrameworkModule\Inc\FrameworkModule.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Inc\RenderModule.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Camera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Common.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ForwardSceneRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12GraphicsCommand.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Helper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Mesh.h" />
@@ -38,6 +40,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderCompiler.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Texture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12X.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Shader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderObject.h" />
@@ -49,13 +52,16 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\NonCopyable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)FrameworkModule\Src\FrameworkModule.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ForwardSceneRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12GraphicsCommand.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12RenderTarget.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Shader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderCompiler.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Texture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\RenderModule.cpp" />
   </ItemGroup>
   <ItemGroup>

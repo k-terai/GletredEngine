@@ -19,9 +19,15 @@ namespace GletredEngine
 			return Targets[index].Get();
 		}
 
-		void Initialize(ComPtr<CID3D12Device> device,ComPtr<CIDXGISwapChain> swapChain, uint32 frameCount);
+		CD3DX12_CPU_DESCRIPTOR_HANDLE GetHandle(const uint32 index) const
+		{
+			const CD3DX12_CPU_DESCRIPTOR_HANDLE handle(RtvHeap->GetCPUDescriptorHandleForHeapStart(), index, RtvDescriptorSize);
+			return handle;
+		}
+
+		void Initialize(ComPtr<CID3D12Device> device, ComPtr<CIDXGISwapChain> swapChain, uint32 frameCount);
 		void Terminate();
-		void ClearRenderTargetView(ComPtr<ID3D12GraphicsCommandList> commandList,uint32 index);
+		void ClearRenderTargetView(ComPtr<ID3D12GraphicsCommandList> commandList, uint32 index);
 
 
 	private:
