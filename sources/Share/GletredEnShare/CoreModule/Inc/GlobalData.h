@@ -10,7 +10,7 @@ namespace GletredEngine
 
 	struct GlobalData
 	{
-		RenderModuleData RenderData;
+		RenderModuleInitData RenderData;
 
 		IRenderModule* RenderModule;
 

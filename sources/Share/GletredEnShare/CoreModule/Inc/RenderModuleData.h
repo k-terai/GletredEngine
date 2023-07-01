@@ -6,10 +6,16 @@
 
 namespace GletredEngine
 {
-	struct RenderModuleData
+	struct RenderModuleInitData
 	{
-		WindowHandle Hwnd;
 		bool UseWarpDevice;
 		bool SupportFullScreen;
+	};
+
+	struct RenderModuleSceneInitData
+	{
+#if GLETRED_ENGINE_PLATFORM_WINDOWS
+		WindowHandle Hwnd;
+#endif	
 	};
 }

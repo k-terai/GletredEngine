@@ -30,7 +30,6 @@ void RenderModule::Initialize(GlobalData* data)
 	auto factory = D3D12Manager::GetInstance()->GetFactory();
 
 	D3D12SceneManager::GetInstance()->Initialize(device, factory, data->RenderData.SupportFullScreen);
-	D3D12SceneManager::GetInstance()->CreateSceneRenderer(data->RenderData.Hwnd);
 
 #endif
 
@@ -53,6 +52,14 @@ void RenderModule::Terminate()
 #endif
 
 }
+
+void RenderModule::CreateScene(RenderModuleSceneInitData data)
+{
+#if GLETRED_ENGINE_PLATFORM_WINDOWS 
+	D3D12SceneManager::GetInstance()->CreateSceneRenderer(data.Hwnd);
+#endif
+}
+
 
 
 

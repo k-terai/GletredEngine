@@ -15,5 +15,7 @@ namespace  GletredEngine
 		void Shutdown() override;
 		void Update() override;
 		void Terminate() override;
+
+		void CreateScene(RenderModuleSceneInitData data) override;
 	};
 }

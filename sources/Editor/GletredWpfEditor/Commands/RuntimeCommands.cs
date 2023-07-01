@@ -20,23 +20,19 @@ namespace GletredWpfEditor.Commands
 
                 _ =>
                 {
-                    var viewport =
-                        EditorManager.MainWindow.ViewModel.MainTab.First(t => t.OwnerControl is IViewportControl).OwnerControl as IViewportControl;
-
-                    Debug.Assert(viewport != null, nameof(viewport) + " != null");
-                    Runtime.LaunchEdEngine(viewport.WindowHandle);
+                    Runtime.EdEngine.EdLaunch();
                 }
                 ,
-                _ => Runtime.IsActive == false);
+                _ => Runtime.EdEngine.IsActive == false);
 
             TerminateRuntimeCommand = new DelegateCommand(
 
                 _ =>
                 {
-                    Runtime.TerminateEdEngine();
+                    Runtime.EdEngine.EdTerminate();
                 }
                 ,
-                _ => Runtime.IsActive);
+                _ => Runtime.EdEngine.IsActive);
         }
     }
 }

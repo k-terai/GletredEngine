@@ -10,7 +10,7 @@
 #define GLETREDEDENGINE_API __declspec(dllimport)
 #endif
 
-EXTERN_C GLETREDEDENGINE_API void Initialize(HWND windowHandle);
+EXTERN_C GLETREDEDENGINE_API void Initialize();
 
 EXTERN_C GLETREDEDENGINE_API void Startup();
 
@@ -19,3 +19,9 @@ EXTERN_C GLETREDEDENGINE_API void Shutdown();
 EXTERN_C GLETREDEDENGINE_API void Update();
 
 EXTERN_C GLETREDEDENGINE_API void Terminate();
+
+
+/*
+ * Render Module
+ */
+EXTERN_C GLETREDEDENGINE_API void CreateScene(HWND hwnd);

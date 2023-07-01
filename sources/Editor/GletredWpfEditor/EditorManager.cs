@@ -23,6 +23,8 @@ namespace GletredWpfEditor
 {
     public static class EditorManager
     {
+        private static bool _isRunIdleTask = true;
+
         public const string MainWindowUriPath = "Main/MainWindow.xaml";
 
         public static IMainWindow MainWindow => (Application.Current.MainWindow as IMainWindow)!;
@@ -49,8 +51,11 @@ namespace GletredWpfEditor
             AssetDatabase.RegisterIconUrl<RootFolder>(ResourceService.Current.GetFluentIconUri(Resources.Icon_AssetBrowser));
             AssetDatabase.RegisterIconUrl<NormalFolder>(ResourceService.Current.GetFluentIconUri(Resources.Icon_Folder));
             AssetDatabase.RegisterIconUrl<Texture>(ResourceService.Current.GetFluentIconUri(Resources.Icon_Texture));
+            AssetDatabase.Initialize();
 
-            return AssetDatabase.Initialize();
+            ScheduleIdleTask();
+
+            return true;
         }
 
         /// <summary>
@@ -59,9 +64,10 @@ namespace GletredWpfEditor
         /// <returns>Return true if shutdown success.</returns>
         public static bool Shutdown()
         {
-            if (Runtime.IsActive)
+            _isRunIdleTask = false;
+            if (Runtime.EdEngine.IsActive)
             {
-                Runtime.TerminateEdEngine();
+                Runtime.EdEngine.EdTerminate();
             }
 
             Application.Current.Shutdown();
@@ -135,6 +141,25 @@ namespace GletredWpfEditor
             return new LookDevControl();
         }
 
+        private static void ScheduleIdleTask()
+        {
+            Application.Current.Dispatcher.InvokeAsync(() =>
+              {
+                  if (!_isRunIdleTask)
+                  {
+                      return;
+                  }
+
+                  if (Runtime.EdEngine.IsActive)
+                  {
+                      Runtime.EdEngine.EdUpdate();
+                  }
+                  ScheduleIdleTask();
+              },
+              System.Windows.Threading.DispatcherPriority.ApplicationIdle);
+        }
+
+
     }
-    
+
 }

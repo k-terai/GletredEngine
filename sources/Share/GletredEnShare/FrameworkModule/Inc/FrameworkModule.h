@@ -19,6 +19,11 @@ namespace GletredEngine
 		void Update() override;
 		void Terminate() override;
 
+		IRenderModule* GetRenderModule() const
+		{
+			return RenderModule;
+		}
+
 	private:
 		IRenderModule* RenderModule;
 	};

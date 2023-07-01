@@ -11,5 +11,6 @@ namespace GletredEngine
 	{
 	public:
 		~IRenderModule() override = default;
+		virtual void CreateScene(RenderModuleSceneInitData data) = 0;
 	};
 }
