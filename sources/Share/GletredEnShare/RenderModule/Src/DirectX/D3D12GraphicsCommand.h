@@ -15,7 +15,7 @@ namespace GletredEngine
 		D3D12GraphicsCommand();
 		~D3D12GraphicsCommand() override;
 		void CreateCommandQueue(CID3D12Device* const device); //Public because called before init swapchain.
-		void Initialize(CID3D12Device* const device, CIDXGISwapChain* swapChain);
+		void Initialize(ComPtr<CID3D12Device> device,ComPtr<CIDXGISwapChain> swapChain);
 
 		CID3D12CommandQueue* GetCommandQueue() const
 		{

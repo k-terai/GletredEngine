@@ -28,12 +28,9 @@ namespace GletredEngine
 	private:
 		friend class  Singleton<D3D12SceneManager>; //Access GetInstance
 
-		void CreateCommandAllocator();
-
 		bool SupportFullScreen;
 		ComPtr<CID3D12Device> Device;
 		ComPtr<CIDXGIFactory> Factory;
-		ComPtr<CID3D12CommandAllocator> CommandAllocator;
 		std::vector<std::shared_ptr<D3D12SceneRenderer>> SceneRendererVector;
 	};
 }

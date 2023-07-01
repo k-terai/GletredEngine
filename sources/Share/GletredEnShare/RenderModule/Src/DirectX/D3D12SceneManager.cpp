@@ -7,7 +7,7 @@
 using namespace GletredEngine;
 using namespace std;
 
-D3D12SceneManager::D3D12SceneManager() : SupportFullScreen(false), Device(nullptr), Factory(nullptr), CommandAllocator(nullptr)
+D3D12SceneManager::D3D12SceneManager() : SupportFullScreen(false), Device(nullptr), Factory(nullptr)
 {
 
 }
@@ -22,14 +22,12 @@ void D3D12SceneManager::Initialize(const ComPtr<CID3D12Device> device, const Com
 	Device = device;
 	Factory = factory;
 	SupportFullScreen = supportFullScreen;
-	CreateCommandAllocator();
 }
 
 void D3D12SceneManager::Terminate()
 {
 	Device.Reset();
 	Factory.Reset();
-	CommandAllocator.Reset();
 
 	for (const auto& r : SceneRendererVector)
 	{
@@ -42,7 +40,7 @@ void D3D12SceneManager::Terminate()
 void D3D12SceneManager::CreateSceneRenderer(const HWND hwnd)
 {
 	SceneRendererVector.emplace_back(std::make_shared<D3D12ForwardSceneRenderer>());
-	SceneRendererVector.back()->Initialize(Device, Factory, CommandAllocator, hwnd);
+	SceneRendererVector.back()->Initialize(Device, Factory, hwnd);
 
 	if (SupportFullScreen)
 	{
@@ -62,10 +60,4 @@ void D3D12SceneManager::Update()
 		scene->Render();
 	}
 }
-
-void D3D12SceneManager::CreateCommandAllocator()
-{
-	Device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&CommandAllocator));
-}
-
 

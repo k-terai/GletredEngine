@@ -33,15 +33,13 @@ void D3D12GraphicsCommand::CreateCommandQueue(CID3D12Device* const device)
 	SetExceptionIfFailed(result);
 }
 
-void D3D12GraphicsCommand::Initialize(CID3D12Device* const device, CIDXGISwapChain* swapChain)
+void D3D12GraphicsCommand::Initialize(ComPtr<CID3D12Device> device, ComPtr<CIDXGISwapChain> swapChain)
 {
 	Device = device;
 	SwapChain = swapChain;
-
 	CreateCommandAllocator(Device.Get());
 	CreateGraphicsCommandList(Device.Get());
 	CreateFence(Device.Get());
-
 	FrameIndex = SwapChain->GetCurrentBackBufferIndex();
 }
 
