@@ -1,0 +1,45 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GletredWpfEditor.LookDev"
+             xmlns:Viewport="clr-namespace:GletredWpfEditor.Viewport" x:Class="GletredWpfEditor.LookDev.LookDevControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="{DynamicResource DarkSurfaceColor00dpBrush}">
+
+    <UserControl.DataContext>
+        <local:LookDevControlViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <ToolBar Height="30" VerticalAlignment="Top" d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin" Style="{DynamicResource CustomToolBarStyle}" Grid.ColumnSpan="2"/>
+        <GridSplitter Margin="0,30,0,0" Background="{DynamicResource DarkSurfaceColor02dpBrush}" Width="5"/>
+        <Viewport:ViewportControl Margin="0,30,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <TabControl Grid.Column="1" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding MainTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
+                            SelectedIndex="{Binding MainTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,30,5,0">
+
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource CustomTabItemStyle}">
+                    <Setter Property="Height" Value="22" />
+                </Style>
+            </TabControl.ItemContainerStyle>
+
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding OwnerControl.Control,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</UserControl>

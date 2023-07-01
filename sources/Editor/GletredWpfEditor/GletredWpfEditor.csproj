@@ -37,6 +37,7 @@
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_dismiss_24_filled.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_error_circle_24_filled.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_error_circle_24_regular.png" />
+    <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_eye_tracking_on_24_regular.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_folder_24_filled.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_folder_add_24_filled.png" />
     <None Remove="ThirdParty\fluentui-system-icons\ic_fluent_folder_open_24_regular.png" />
@@ -99,6 +100,7 @@
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_dismiss_24_filled.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_error_circle_24_filled.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_error_circle_24_regular.png" />
+    <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_eye_tracking_on_24_regular.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_folder_24_filled.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_folder_add_24_filled.png" />
     <Resource Include="ThirdParty\fluentui-system-icons\ic_fluent_folder_open_24_regular.png" />

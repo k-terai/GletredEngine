@@ -12,8 +12,7 @@
     </UserControl.DataContext>
     
     <Grid>
-        <ToolBar Height="30" VerticalAlignment="Top" Style="{DynamicResource CustomToolBarStyle}"/>
-        <WindowsFormsHost Margin="4,29,1,2">
+        <WindowsFormsHost>
             <forms:Form x:Name="MainForm" FormBorderStyle="None" TopLevel="False" TopMost="False" BackColor="Black"/>
         </WindowsFormsHost>
     </Grid>

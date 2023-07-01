@@ -223,6 +223,15 @@ namespace GletredWpfEditor {
         }
         
         /// <summary>
+        ///   ic_fluent_eye_tracking_on_24_regular.png に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Icon_LookDev {
+            get {
+                return ResourceManager.GetString("Icon_LookDev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ic_fluent_full_screen_maximize_24_filled.png に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Icon_Maximize {
@@ -363,6 +372,15 @@ namespace GletredWpfEditor {
         public static string LogViewerToolTip {
             get {
                 return ResourceManager.GetString("LogViewerToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   LookDev に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LookDev {
+            get {
+                return ResourceManager.GetString("LookDev", resourceCulture);
             }
         }
         

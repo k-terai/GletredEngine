@@ -171,6 +171,9 @@
   <data name="Icon_LogViewer" xml:space="preserve">
     <value>ic_fluent_view_desktop_24_filled.png</value>
   </data>
+  <data name="Icon_LookDev" xml:space="preserve">
+    <value>ic_fluent_eye_tracking_on_24_regular.png</value>
+  </data>
   <data name="Icon_Maximize" xml:space="preserve">
     <value>ic_fluent_full_screen_maximize_24_filled.png</value>
   </data>
@@ -218,6 +221,9 @@
   </data>
   <data name="LogViewerToolTip" xml:space="preserve">
     <value>You can view engine and editor logs.</value>
+  </data>
+  <data name="LookDev" xml:space="preserve">
+    <value>LookDev</value>
   </data>
   <data name="Main" xml:space="preserve">
     <value>Main</value>

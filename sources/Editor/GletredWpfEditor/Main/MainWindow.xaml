@@ -160,14 +160,18 @@
             <ToolBar Height="30"  d:LayoutOverrides="HorizontalAlignment, Height" Style="{DynamicResource CustomToolBarStyle}" Background="{DynamicResource DarkSurfaceColor01dpBrush}" VerticalAlignment="Top"
                      Grid.Row="0" 
                      Visibility="{Binding EnableToolBar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BoolToVisibilityConverter}}">
-                <Button Style="{StaticResource CustomButtonWithImageStyle}">
-                    <Image Source="{Binding Resources.Icon_Portal,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
-                </Button>
+
                 <Button Style="{StaticResource CustomButtonWithImageStyle}">
                     <Image Source="{Binding Resources.Icon_Save,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
                 </Button>
                 <Button Style="{StaticResource CustomButtonWithImageStyle}">
                     <Image Source="{Binding Resources.Icon_Open,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button>
+                <Button Style="{StaticResource CustomButtonWithImageStyle}" Command="{Binding OpenPortalCommand,Mode=OneTime,UpdateSourceTrigger=PropertyChanged}">
+                    <Image Source="{Binding Resources.Icon_Portal,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button>
+                <Button Style="{StaticResource CustomButtonWithImageStyle}" Command="{Binding OpenLookDevCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                    <Image Source="{Binding Resources.Icon_LookDev,Converter={StaticResource StringToFluentIconUriConverter},Mode=OneWay, Source={x:Static service:ResourceService.Current}, UpdateSourceTrigger=PropertyChanged}"/>
                 </Button>
             </ToolBar>
             <Grid Grid.Row="1" Margin="0,0,0,22">

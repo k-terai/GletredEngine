@@ -10,6 +10,7 @@ using GletredEdShare.ProjectModule;
 using GletredEdShare.RuntimeModule;
 using GletredWpfEditor.AssetBrowser;
 using GletredWpfEditor.LogViewer;
+using GletredWpfEditor.LookDev;
 using GletredWpfEditor.Main;
 using GletredWpfEditor.Portal;
 using GletredWpfEditor.ProjectWizard;
@@ -129,5 +130,11 @@ namespace GletredWpfEditor
             return new PortalControl();
         }
 
+        public static ILookDevControl CreateLookDevControl()
+        {
+            return new LookDevControl();
+        }
+
     }
+    
 }
