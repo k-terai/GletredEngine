@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <ToolBar Height="30" VerticalAlignment="Top" d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin" Style="{DynamicResource CustomToolBarStyle}" Grid.ColumnSpan="2"/>
         <GridSplitter Margin="0,30,0,0" Background="{DynamicResource DarkSurfaceColor02dpBrush}" Width="5"/>
-        <Viewport:ViewportControl Margin="0,30,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <Viewport:ViewportControl x:Name="Viewport" Margin="0,30,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
         <TabControl Grid.Column="1" Style="{StaticResource CustomTabControlStyle}" ItemsSource="{Binding MainTab,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource DarkMediumEmphasisTextColorBrush}"
                             SelectedIndex="{Binding MainTabSelectIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,30,5,0">
 

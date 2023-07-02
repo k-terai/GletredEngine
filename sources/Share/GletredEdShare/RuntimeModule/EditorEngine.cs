@@ -12,6 +12,9 @@ namespace GletredEdShare.RuntimeModule
     {
         public bool IsActive { get; private set; }
 
+        public event Action? OnEdEngineLaunched;
+        public event Action? OnEdEngineTerminated;
+
         private DllInfo _dllInfo;
 
         private delegate void Initialize();
@@ -36,6 +39,7 @@ namespace GletredEdShare.RuntimeModule
             NativeLibraryManager.GetNativeDelegate<Initialize>(_dllInfo.Id)
                 .Invoke();
             IsActive = true;
+            OnEdEngineLaunched?.Invoke();
         }
 
         public void EdStartup()
@@ -63,6 +67,7 @@ namespace GletredEdShare.RuntimeModule
             NativeLibraryManager.GetNativeDelegate<Terminate>(_dllInfo.Id).Invoke();
             NativeLibraryManager.FreeNativeLibrary(_dllInfo.Id);
             IsActive = false;
+            OnEdEngineTerminated?.Invoke();
         }
     }
 }

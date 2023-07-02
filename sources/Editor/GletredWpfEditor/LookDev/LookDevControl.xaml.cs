@@ -3,6 +3,7 @@
 
 using System;
 using System.Windows.Controls;
+using GletredEdShare.RuntimeModule;
 
 namespace GletredWpfEditor.LookDev
 {
@@ -16,8 +17,26 @@ namespace GletredWpfEditor.LookDev
         public UserControl Control => this;
 
         public LookDevControl()
-        {
+        { 
             InitializeComponent();
+
+            Runtime.EdEngine.OnEdEngineLaunched += () =>
+            {
+                Runtime.EdEngine.EdCreateScene(Viewport.WindowHandle);
+            };
+
+            Runtime.EdEngine.OnEdEngineTerminated += () =>
+            {
+
+            };
+
+            
+
+            if (Runtime.EdEngine.IsActive)
+            {
+                Runtime.EdEngine.EdCreateScene(Viewport.WindowHandle);
+            }
+            
         }
 
     }
