@@ -3,6 +3,7 @@
 
 #pragma once
 #include"NonCopyable.h"
+#include <assert.h>
 
 namespace GletredEngine
 {
@@ -17,7 +18,19 @@ namespace GletredEngine
 			return IsInitialized;
 		}
 
+		uniqueid GetResourceId() const
+		{
+			return ResourceId;
+		}
+
+		void SetResourceId(const uniqueid id)
+		{
+			assert(ResourceId == C_INVALID_UNIQUE_ID);
+			ResourceId = id;
+		}
+
 	protected:
+		uniqueid ResourceId;
 		bool IsInitialized;
 	};
 }

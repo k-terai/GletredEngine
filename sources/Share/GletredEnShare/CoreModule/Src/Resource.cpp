@@ -7,7 +7,7 @@ using namespace GletredEngine;
 using namespace std;
 
 
-Resource::Resource() : IsInitialized(false)
+Resource::Resource() : IsInitialized(false),ResourceId(C_INVALID_UNIQUE_ID)
 {
 
 }

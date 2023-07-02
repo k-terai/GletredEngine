@@ -23,7 +23,7 @@ namespace GletredEngine
 {
 #if GLETRED_ENGINE_PLATFORM_WINDOWS 
 	typedef TCHAR tchar;
-	typedef std::wstring tstring;   // wide string,
+	typedef std::basic_string<TCHAR> tstring;   // string,
 	typedef LPTSTR ptstring;        // Pointer string.
 	typedef LPCTSTR ctstring; 	    // Const string.
 	typedef signed char int8;

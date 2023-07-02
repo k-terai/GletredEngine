@@ -4,6 +4,7 @@
 #include "RenderModule/Inc/RenderModule.h"
 #include "RenderModule/Src/DirectX/D3D12Manager.h"
 #include "RenderModule/Src/DirectX/D3D12SceneManager.h"
+#include "RenderModule/Src/ResourceManager.h"
 
 using namespace  std;
 using namespace  GletredEngine;
@@ -33,6 +34,8 @@ void RenderModule::Initialize(GlobalData* data)
 
 #endif
 
+
+	ResourceManager::GetInstance()->Initialize();
 }
 
 void RenderModule::Update()
@@ -45,6 +48,7 @@ void RenderModule::Update()
 
 void RenderModule::Terminate()
 {
+	ResourceManager::GetInstance()->Terminate();
 
 #if GLETRED_ENGINE_PLATFORM_WINDOWS 
 	D3D12Manager::GetInstance()->Terminate();

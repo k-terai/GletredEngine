@@ -60,7 +60,6 @@ namespace GletredEngine
 		TrianglePositionTexture
 	};
 
-
 	enum class BuildInTextureType
 	{
 		None,
