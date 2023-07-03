@@ -1,7 +1,7 @@
 // Copyright (c) k-terai and Contributors
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
-#include "RenderModule/Src/ResourceManager.h"
+#include "RenderModule/Src/DirectX//D3D12ResourceManager.h"
 #include "RenderModule/Src/DirectX/D3D12Shader.h"
 #include "RenderModule/Src/DirectX/D3D12Mesh.h"
 #include "RenderModule/Src/DirectX/D3D12Manager.h"
@@ -13,17 +13,17 @@ using namespace  DirectX;
 
 
 
-ResourceManager::ResourceManager()
+D3D12ResourceManager::D3D12ResourceManager()
 {
 
 }
 
-ResourceManager::~ResourceManager()
+D3D12ResourceManager::~D3D12ResourceManager()
 {
 	ResourceMap.clear();
 }
 
-void ResourceManager::Initialize()
+void D3D12ResourceManager::Initialize()
 {
 	BuildResource.GenerateHash();
 
@@ -52,7 +52,7 @@ void ResourceManager::Initialize()
 
 }
 
-void ResourceManager::Terminate()
+void D3D12ResourceManager::Terminate()
 {
 	for (auto& v : ResourceMap)
 	{

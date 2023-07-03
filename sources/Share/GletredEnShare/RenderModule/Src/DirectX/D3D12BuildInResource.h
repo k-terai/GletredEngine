@@ -8,7 +8,7 @@
 
 namespace GletredEngine
 {
-	struct BuildInResource
+	struct D3D12BuildInResource
 	{
 		ctstring VsPositionColorPath = _T("VSPositionColor.cso");
 		ctstring PsPositionColorPath = _T("PSPositionColor.cso");

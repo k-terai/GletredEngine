@@ -2,7 +2,7 @@
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
 #include "RenderModule/Src/DirectX/D3D12Material.h"
-#include "RenderModule/Src/ResourceManager.h"
+#include "RenderModule/Src/DirectX//D3D12ResourceManager.h"
 #include "RenderModule/Src/DirectX/D3D12Mesh.h"
 
 using namespace GletredEngine;
@@ -21,7 +21,7 @@ D3D12Material::~D3D12Material()
 
 void D3D12Material::Initialize(const uniqueid shaderResourceId)
 {
-	MainShader = ResourceManager::GetInstance()->GetResource(shaderResourceId);
+	MainShader = D3D12ResourceManager::GetInstance()->GetResource(shaderResourceId);
 }
 
 void D3D12Material::Destroy()
@@ -37,7 +37,7 @@ void D3D12Material::Destroy()
 
 void D3D12Material::SetTexture(uniqueid textureResourceId)
 {
-	Textures.emplace_back(ResourceManager::GetInstance()->GetResource(textureResourceId));
+	Textures.emplace_back(D3D12ResourceManager::GetInstance()->GetResource(textureResourceId));
 	++TexCount;
 }
 

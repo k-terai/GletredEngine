@@ -5,20 +5,20 @@
 
 #include "CoreModule/Inc/Singleton.h"
 #include "CoreModule/Inc/Resource.h"
-#include "RenderModule/Src/BuildInResource.h"
+#include "RenderModule/Src/DirectX//D3D12BuildInResource.h"
 #include <memory>
 #include <unordered_map>
 
 
 namespace GletredEngine
 {
-	class ResourceManager : public Singleton<ResourceManager>
+	class D3D12ResourceManager : public Singleton<D3D12ResourceManager>
 	{
 	public:
 		void Initialize();
 		void Terminate();
 
-		const BuildInResource* GetBuildResourceData() const
+		const D3D12BuildInResource* GetBuildResourceData() const
 		{
 			return &BuildResource;
 		}
@@ -42,11 +42,11 @@ namespace GletredEngine
 		}
 
 	private:
-		friend class  Singleton<ResourceManager>; //Access GetInstance
-		ResourceManager();
-		~ResourceManager() override;
+		friend class  Singleton<D3D12ResourceManager>; //Access GetInstance
+		D3D12ResourceManager();
+		~D3D12ResourceManager() override;
 
 		std::unordered_map<uniqueid, std::shared_ptr<Resource>> ResourceMap;
-		BuildInResource BuildResource;
+		D3D12BuildInResource BuildResource;
 	};
 }

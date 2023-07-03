@@ -4,7 +4,7 @@
 #include "RenderModule/Inc/RenderModule.h"
 #include "RenderModule/Src/DirectX/D3D12Manager.h"
 #include "RenderModule/Src/DirectX/D3D12SceneManager.h"
-#include "RenderModule/Src/ResourceManager.h"
+#include "RenderModule/Src/DirectX//D3D12ResourceManager.h"
 
 using namespace  std;
 using namespace  GletredEngine;
@@ -31,11 +31,11 @@ void RenderModule::Initialize(GlobalData* data)
 	auto factory = D3D12Manager::GetInstance()->GetFactory();
 
 	D3D12SceneManager::GetInstance()->Initialize(device, factory, data->RenderData.SupportFullScreen);
+	D3D12ResourceManager::GetInstance()->Initialize();
 
 #endif
 
 
-	ResourceManager::GetInstance()->Initialize();
 }
 
 void RenderModule::Update()
@@ -48,9 +48,10 @@ void RenderModule::Update()
 
 void RenderModule::Terminate()
 {
-	ResourceManager::GetInstance()->Terminate();
 
-#if GLETRED_ENGINE_PLATFORM_WINDOWS 
+#if GLETRED_ENGINE_PLATFORM_WINDOWS
+	D3D12ResourceManager::GetInstance()->Terminate();
+
 	D3D12Manager::GetInstance()->Terminate();
 	D3D12SceneManager::GetInstance()->Terminate();
 #endif

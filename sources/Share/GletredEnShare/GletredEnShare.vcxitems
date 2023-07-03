@@ -29,7 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CoreModule\Inc\Singleton.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)FrameworkModule\Inc\FrameworkModule.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Inc\RenderModule.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\BuildInResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12BuildInResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Camera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Common.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ForwardSceneRenderer.h" />
@@ -46,7 +46,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12X.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Shader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\ResourceManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ResourceManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CoreModule\Src\GObject.cpp" />
@@ -67,7 +67,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ShaderCompiler.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Texture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\RenderModule.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\ResourceManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)RenderModule\Assets\Shaders\CheckerBoardShader.hlsli" />
