@@ -18,6 +18,8 @@ namespace GletredEngine
 		ctstring PsCheckerBoardPath = _T("PSCheckerBoardShader.cso");
 		uniqueid CheckerBoardId = C_INVALID_UNIQUE_ID;
 
+		uniqueid TriangleMeshId = C_INVALID_UNIQUE_ID;
+
 		void GenerateHash()
 		{
 			//PositionColor
@@ -30,6 +32,12 @@ namespace GletredEngine
 			{
 				tchar temp[] = _T("1AEF0098-5979-4E39-B921-7F8093FD40C7");
 				CheckerBoardId = Fnv1Hash32(temp);
+			}
+
+			// Triangle
+			{
+				tchar temp[] = _T("125E17D6-4249-4107-A7CF-4EB8E7623537");
+				TriangleMeshId = Fnv1Hash32(temp);
 			}
 
 		}

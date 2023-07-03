@@ -3,9 +3,13 @@
 
 #include "RenderModule/Src/ResourceManager.h"
 #include "RenderModule/Src/DirectX/D3D12Shader.h"
+#include "RenderModule/Src/DirectX/D3D12Mesh.h"
+#include "RenderModule/Src/DirectX/D3D12Manager.h"
+#include "VertexTypes.h"
 
 using namespace  GletredEngine;
 using namespace  std;
+using namespace  DirectX;
 
 
 
@@ -35,12 +39,22 @@ void ResourceManager::Initialize()
 		r->Initialize(BuildResource.VsCheckerBoardPath, BuildResource.PsCheckerBoardPath);
 	}
 
+	//Create triangle mesh
+	{
+		const auto r = CreateResource<D3D12Mesh<VertexPositionColor>>(BuildResource.CheckerBoardId);
+		vector<VertexPositionColor> vertex;
+		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.0f, 0.25f / 2, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)));
+		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.25f, -0.25f / 2, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)));
+		vertex.emplace_back(VertexPositionColor(XMFLOAT3(-0.25f, -0.25f / 2, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)));
+		r->Initialize(D3D12Manager::GetInstance()->GetDevice(), vertex, VertexPositionColor::InputLayout);
+	}
+
 
 }
 
-void ResourceManager::Terminate()	
+void ResourceManager::Terminate()
 {
-	for(auto& v : ResourceMap)
+	for (auto& v : ResourceMap)
 	{
 		v.second.reset();
 	}

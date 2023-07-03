@@ -19,6 +19,7 @@ namespace GletredEngine
 			Device = device;
 			VertexData = vertexData;
 			Layout = layout;
+			VertexBufferSize = sizeof(T) * vertexData.size();
 
 			const auto heap = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
 			const auto desc = CD3DX12_RESOURCE_DESC::Buffer(VertexBufferSize);
