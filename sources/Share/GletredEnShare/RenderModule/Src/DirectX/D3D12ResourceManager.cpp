@@ -4,6 +4,7 @@
 #include "RenderModule/Src/DirectX//D3D12ResourceManager.h"
 #include "RenderModule/Src/DirectX/D3D12Shader.h"
 #include "RenderModule/Src/DirectX/D3D12Mesh.h"
+#include "RenderModule/Src/DirectX/D3D12Texture.h"
 #include "RenderModule/Src/DirectX/D3D12Manager.h"
 #include "VertexTypes.h"
 
@@ -41,12 +42,18 @@ void D3D12ResourceManager::Initialize()
 
 	//Create triangle mesh
 	{
-		const auto r = CreateResource<D3D12Mesh<VertexPositionColor>>(BuildResource.CheckerBoardId);
+		const auto r = CreateResource<D3D12Mesh<VertexPositionColor>>(BuildResource.TriangleMeshId);
 		vector<VertexPositionColor> vertex;
 		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.0f, 0.25f / 2, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)));
 		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.25f, -0.25f / 2, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)));
 		vertex.emplace_back(VertexPositionColor(XMFLOAT3(-0.25f, -0.25f / 2, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)));
 		r->Initialize(D3D12Manager::GetInstance()->GetDevice(), vertex, VertexPositionColor::InputLayout);
+	}
+
+	//Create checker board texture.
+	{
+		const auto r = CreateResource<D3D12Texture>(BuildResource.CheckerBoardTextureId);
+		r->InitializeAsCheckerBoard(D3D12Manager::GetInstance()->GetDevice(), 256, 256, 4);
 	}
 
 

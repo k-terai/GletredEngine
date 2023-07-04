@@ -5,15 +5,15 @@
 
 #include "RenderModule/Src/DirectX/D3D12Common.h"
 #include "RenderModule/Src/DirectX/D3D12Helper.h"
-#include "CoreModule/Inc/Resource.h"
-
+#include "RenderModule/Src/DirectX/D3D12MeshBase.h"
 
 namespace GletredEngine
 {
 	template<typename T>
-	class D3D12Mesh : public Resource
+	class D3D12Mesh : public D3D12MeshBase
 	{
 	public:
+
 		HRESULT Initialize(const ComPtr<CID3D12Device> device, std::vector<T> vertexData, const D3D12_INPUT_LAYOUT_DESC layout)
 		{
 			Device = device;
@@ -69,27 +69,12 @@ namespace GletredEngine
 			VertexBufferView.SizeInBytes = VertexBufferSize;
 		}
 
-		D3D12_INPUT_LAYOUT_DESC GetInputLayoutDesc() const
-		{
-			return Layout;
-		}
-
-		uint32 GetVertexCount() const
+		uint32 GetVertexCount() override
 		{
 			return VertexBufferSize / sizeof(T);
 		}
 
-		D3D12_VERTEX_BUFFER_VIEW* GetVertexBufferView()
-		{
-			return &VertexBufferView;
-		}
-
 	protected:
-		ComPtr<CID3D12Device> Device;
-		ComPtr<CID3D12Resource> VertexBuffer;
-		D3D12_INPUT_LAYOUT_DESC Layout = {};
-		D3D12_VERTEX_BUFFER_VIEW VertexBufferView = {};
-		uint32 VertexBufferSize = 0;
 		std::vector<T> VertexData;
 	};
 }

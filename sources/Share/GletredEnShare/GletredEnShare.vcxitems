@@ -38,6 +38,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Material.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Mesh.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12MeshBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12MeshRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12RenderTarget.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.h" />
@@ -60,6 +62,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12GraphicsCommand.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Manager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12Material.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12MeshRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12RenderTarget.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RenderModule\Src\DirectX\D3D12SceneRenderer.cpp" />
