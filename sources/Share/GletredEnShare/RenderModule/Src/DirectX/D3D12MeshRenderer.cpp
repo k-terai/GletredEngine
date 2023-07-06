@@ -10,7 +10,7 @@
 using namespace std;
 using namespace GletredEngine;
 
-D3D12MeshRenderer::D3D12MeshRenderer() : Device(nullptr), Mesh(nullptr), Material(nullptr), RootSignature(nullptr),
+D3D12MeshRenderer::D3D12MeshRenderer() : Device(nullptr), MeshResource(nullptr), MaterialResource(nullptr), RootSignature(nullptr),
 PipelineState(nullptr)
 {
 
@@ -19,18 +19,28 @@ PipelineState(nullptr)
 D3D12MeshRenderer::~D3D12MeshRenderer()
 {
 	Device = nullptr;
-	Mesh = nullptr;
-	Material = nullptr;
+	MeshResource = nullptr;
+	MaterialResource = nullptr;
 	RootSignature = nullptr;
 	PipelineState = nullptr;
 }
 
 void D3D12MeshRenderer::Initialize(const uniqueid meshId, const uniqueid materialId)
 {
-	Mesh = D3D12ResourceManager::GetInstance()->GetResource(meshId);
-	Material = D3D12ResourceManager::GetInstance()->GetResource(materialId);
+	MeshResource = D3D12ResourceManager::GetInstance()->GetResource(meshId);
+	MaterialResource = D3D12ResourceManager::GetInstance()->GetResource(materialId);
 
-	CreateSamplerRootSignature();
+	const auto mesh = GetMesh();
+	const auto mat = GetMaterial();
+
+	if(mat->IsAnyTexture())
+	{
+		CreateSamplerRootSignature();
+	}else
+	{
+		CreateEmptyRootSignature();
+	}
+
 }
 
 void D3D12MeshRenderer::Render(const D3D12GraphicsCommand* command)
@@ -120,8 +130,8 @@ void D3D12MeshRenderer::CreateGraphicsPipelineState()
 	D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
 	SecureZeroMemory(&psoDesc, sizeof(D3D12_GRAPHICS_PIPELINE_STATE_DESC));
 
-	const auto shader = reinterpret_cast<D3D12Shader*>(Material.get());
-	const auto mesh = reinterpret_cast<D3D12MeshBase*>(Mesh.get());
+	const auto shader = reinterpret_cast<D3D12Shader*>(MaterialResource.get());
+	const auto mesh = reinterpret_cast<D3D12MeshBase*>(MeshResource.get());
 
 	psoDesc.InputLayout = mesh->GetInputLayoutDesc();
 	psoDesc.pRootSignature = RootSignature.Get();

@@ -30,12 +30,12 @@ namespace GletredEngine
 
 		D3D12Material* GetMaterial() const
 		{
-			return  reinterpret_cast<D3D12Material*>(Material.get());
+			return  reinterpret_cast<D3D12Material*>(MaterialResource.get());
 		}
 
 		D3D12MeshBase* GetMesh() const
 		{
-			return  reinterpret_cast<D3D12MeshBase*>(Mesh.get());
+			return  reinterpret_cast<D3D12MeshBase*>(MeshResource.get());
 		}
 
 		void Render(const D3D12GraphicsCommand* command);
@@ -46,8 +46,8 @@ namespace GletredEngine
 		void CreateGraphicsPipelineState();
 
 		ComPtr<CID3D12Device> Device;
-		std::shared_ptr<Resource> Mesh;
-		std::shared_ptr<Resource> Material;
+		std::shared_ptr<Resource> MeshResource;
+		std::shared_ptr<Resource> MaterialResource;
 		ComPtr<CID3D12RootSignature> RootSignature;
 		ComPtr<CID3D12PipelineState> PipelineState;
 	};
