@@ -22,6 +22,11 @@ namespace GletredEngine
 		void Initialize(ComPtr<CID3D12Device> device, ComPtr<CIDXGIFactory> factory,bool supportFullScreen);
 		void Terminate();
 		void CreateSceneRenderer(HWND hwnd);
+		std::weak_ptr<D3D12SceneRenderer> GetSceneRenderer(const uint32 index)
+		{
+			assert(SceneRendererVector.size() > index);
+			return SceneRendererVector[index];
+		}
 
 		void Update();
 

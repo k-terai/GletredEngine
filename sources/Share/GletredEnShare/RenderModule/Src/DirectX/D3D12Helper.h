@@ -39,5 +39,20 @@ namespace GletredEngine
 		return false;
 	}
 
+	inline ScreenSize GetScreenSize(const WindowHandle hWnd)
+	{
+		RECT windowRect;
+		ScreenSize size = {};
+
+		if (GetWindowRect(hWnd, &windowRect))
+		{
+			int windowWidth = windowRect.right - windowRect.left;
+			int windowHeight = windowRect.bottom - windowRect.top;
+			size.Width = GetSystemMetrics(SM_CXSCREEN);
+			size.Height = GetSystemMetrics(SM_CYSCREEN);
+		}
+
+		return size;
+	}
 
 }

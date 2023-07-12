@@ -6,6 +6,7 @@
 #include "RenderModule/Src/DirectX/D3D12Mesh.h"
 #include "RenderModule/Src/DirectX/D3D12Texture.h"
 #include "RenderModule/Src/DirectX/D3D12Manager.h"
+#include "RenderModule/Src/DirectX/D3D12Material.h"
 #include "VertexTypes.h"
 
 using namespace  GletredEngine;
@@ -28,10 +29,16 @@ void D3D12ResourceManager::Initialize()
 {
 	BuildResource.GenerateHash();
 
-	//Create position color shader.
+	// Create position color shader.
 	{
 		const auto r = CreateResource<D3D12Shader>(BuildResource.PositionColorId);
 		r->Initialize(BuildResource.VsPositionColorPath, BuildResource.PsPositionColorPath);
+	}
+
+	// Create position color material.
+	{
+		const auto r = CreateResource<D3D12Material>(BuildResource.PositionColorDefaultMaterialId);
+		r->Initialize(BuildResource.PositionColorId);
 	}
 
 	//Create checker board shader.
@@ -44,10 +51,11 @@ void D3D12ResourceManager::Initialize()
 	{
 		const auto r = CreateResource<D3D12Mesh<VertexPositionColor>>(BuildResource.TriangleMeshId);
 		vector<VertexPositionColor> vertex;
-		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.0f, 0.25f / 2, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)));
-		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.25f, -0.25f / 2, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)));
-		vertex.emplace_back(VertexPositionColor(XMFLOAT3(-0.25f, -0.25f / 2, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)));
+		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.0f, 0.25f / 5, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)));
+		vertex.emplace_back(VertexPositionColor(XMFLOAT3(0.25f, -0.25f / 5, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)));
+		vertex.emplace_back(VertexPositionColor(XMFLOAT3(-0.25f, -0.25f / 5, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)));
 		r->Initialize(D3D12Manager::GetInstance()->GetDevice(), vertex, VertexPositionColor::InputLayout);
+		r->Map(vertex);
 	}
 
 	//Create checker board texture.

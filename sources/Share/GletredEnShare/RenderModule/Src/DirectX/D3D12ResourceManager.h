@@ -31,6 +31,7 @@ namespace GletredEngine
 		template<class T>
 		T* CreateResource(const uniqueid id)
 		{
+			assert(ResourceMap.count(id) == 0);
 			ResourceMap[id] = std::make_shared<T>();
 			ResourceMap[id]->SetResourceId(id);
 			return reinterpret_cast<T*>(ResourceMap[id].get());

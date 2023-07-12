@@ -38,6 +38,7 @@ namespace GletredEdShare.RuntimeModule
             NativeLibraryManager.LoadNativeLibrary(context, out _dllInfo);
             NativeLibraryManager.GetNativeDelegate<Initialize>(_dllInfo.Id)
                 .Invoke();
+
             IsActive = true;
             OnEdEngineLaunched?.Invoke();
         }

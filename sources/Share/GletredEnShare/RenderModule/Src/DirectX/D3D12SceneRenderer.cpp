@@ -3,6 +3,7 @@
 
 #include "RenderModule/Src/DirectX/D3D12SceneRenderer.h"
 #include "RenderModule/Src/DirectX/D3D12Helper.h"
+#include "RenderModule/Src/DirectX/D3D12ResourceManager.h"
 
 using namespace  std;
 using namespace  GletredEngine;
@@ -23,7 +24,7 @@ D3D12SceneRenderer::~D3D12SceneRenderer()
 }
 
 void D3D12SceneRenderer::Initialize(const ComPtr<CID3D12Device> device, const ComPtr<CIDXGIFactory> factory,
-	const HWND hwnd)
+	const WindowHandle hwnd)
 {
 	Device = device;
 	Factory = factory;
@@ -31,6 +32,14 @@ void D3D12SceneRenderer::Initialize(const ComPtr<CID3D12Device> device, const Co
 	CreateSwapChain(hwnd);
 	Command.Initialize(device, SwapChain);
 	SwapChainRenderTarget.Initialize(device, SwapChain, FrameCount);
+
+	const auto screenSize = GetScreenSize(hwnd);
+
+	CreateCamera(-1, screenSize.Width, screenSize.Width);
+
+	//Test
+	const auto br = D3D12ResourceManager::GetInstance()->GetBuildResourceData();
+	CreateMeshRenderer(br->TriangleMeshId, br->PositionColorDefaultMaterialId);
 }
 
 void D3D12SceneRenderer::Terminate()
@@ -42,6 +51,24 @@ void D3D12SceneRenderer::Terminate()
 	FrameCount = 2;
 	FrameIndex = 0;
 }
+
+std::weak_ptr<D3D12Camera> D3D12SceneRenderer::CreateCamera(const int32 priority, const int32 width, const int32 height)
+{
+	Cameras.emplace_back(std::make_shared<D3D12Camera>());
+	auto& c = Cameras.back();
+	c->Initialize(priority, static_cast<float>(width), static_cast<float>(height));
+	return  c; //Convert shared to weak
+}
+
+std::weak_ptr<D3D12MeshRenderer> D3D12SceneRenderer::CreateMeshRenderer(const uniqueid meshId, const uniqueid materialId)
+{
+	MeshRenderers.emplace_back(std::make_shared<D3D12MeshRenderer>());
+	auto& m = MeshRenderers.back();
+	m->Initialize(Device,meshId, materialId);
+
+	return m; //Convert shared to weak
+}
+
 
 void D3D12SceneRenderer::CreateSwapChain(const HWND hwnd)
 {
@@ -70,7 +97,7 @@ void D3D12SceneRenderer::CreateSwapChain(const HWND hwnd)
 	swapChainDesc.SampleDesc.Count = 1;
 
 	ComPtr<IDXGISwapChain1> swapChain;
-	auto result = Factory->CreateSwapChainForHwnd(
+	const auto result = Factory->CreateSwapChainForHwnd(
 		Command.GetCommandQueue(),
 		hwnd,
 		&swapChainDesc,
@@ -81,5 +108,20 @@ void D3D12SceneRenderer::CreateSwapChain(const HWND hwnd)
 
 	swapChain.As(&SwapChain);
 	SetExceptionIfFailed(result);
+}
+
+D3D12Camera* D3D12SceneRenderer::GetHightestPriorityCamera() const
+{
+	D3D12Camera* camera = nullptr;
+
+	for (auto& c : Cameras)
+	{
+		if (camera == nullptr || camera->GetPriority() < c->GetPriority())
+		{
+			camera = c.get();
+		}
+	}
+
+	return camera;
 }
 

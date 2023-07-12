@@ -24,8 +24,16 @@ void D3D12ForwardSceneRenderer::Render()
 void D3D12ForwardSceneRenderer::TestRender()
 {
 	Command.Reset();
+	Command.SetViewportsAndScissorRects(GetHightestPriorityCamera());
 	Command.TransitionPresentToRenderTarget(SwapChainRenderTarget);
+	Command.SetRenderTargets(SwapChainRenderTarget);
 	Command.ClearRenderTargetView(SwapChainRenderTarget);
+
+	for(auto& r : MeshRenderers)
+	{
+		r->Render(&Command);
+	}
+
 	Command.TransitionRenderTargetToPresent(SwapChainRenderTarget);
 	Command.Close();
 	Command.Execute();

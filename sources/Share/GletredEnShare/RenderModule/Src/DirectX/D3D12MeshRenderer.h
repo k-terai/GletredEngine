@@ -16,7 +16,7 @@ namespace GletredEngine
 		D3D12MeshRenderer();
 		~D3D12MeshRenderer() override;
 
-		void Initialize(uniqueid meshId, uniqueid materialId);
+		void Initialize(ComPtr<CID3D12Device> device,uniqueid meshId, uniqueid materialId);
 
 		CID3D12RootSignature* GetRootSignature() const
 		{

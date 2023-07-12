@@ -29,6 +29,7 @@ namespace GletredEngine
 
 		D3D12_SHADER_BYTECODE GetVertexByteCode() const
 		{
+			assert(IsInitialize());
 			D3D12_SHADER_BYTECODE b;
 			b.BytecodeLength = Vertex->Size;
 			b.pShaderBytecode = Vertex->Ptr;
@@ -37,6 +38,7 @@ namespace GletredEngine
 
 		D3D12_SHADER_BYTECODE GetPixelByteCode() const
 		{
+			assert(IsInitialize());
 			D3D12_SHADER_BYTECODE b;
 			b.BytecodeLength = Pixel->Size;
 			b.pShaderBytecode = Pixel->Ptr;

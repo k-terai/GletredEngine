@@ -66,5 +66,3 @@ void RenderModule::CreateScene(RenderModuleSceneInitData data)
 }
 
 
-
-

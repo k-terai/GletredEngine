@@ -21,7 +21,8 @@
 
 namespace GletredEngine
 {
-#if GLETRED_ENGINE_PLATFORM_WINDOWS 
+#if GLETRED_ENGINE_PLATFORM_WINDOWS
+
 	typedef TCHAR tchar;
 	typedef std::basic_string<TCHAR> tstring;   // string,
 	typedef LPTSTR ptstring;        // Pointer string.
@@ -35,7 +36,15 @@ namespace GletredEngine
 	typedef unsigned long long uint64;
 	typedef signed long long int64;
 	typedef uint32 uniqueid;
+
 	using WindowHandle = HWND;
+
+	struct ScreenSize
+	{
+		int32 Width;
+		int32 Height;
+	};
+
 #endif
 
 }

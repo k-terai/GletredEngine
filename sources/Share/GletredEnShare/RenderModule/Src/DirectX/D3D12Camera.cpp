@@ -6,18 +6,19 @@
 using namespace  std;
 using namespace  GletredEngine;
 
-D3D12Camera::D3D12Camera() : Viewport(), ScissorRect()
+D3D12Camera::D3D12Camera() : Priority(-1), Viewport(), ScissorRect()
 {
-	
+
 }
 
 D3D12Camera::~D3D12Camera()
 {
-	
+
 }
 
-void D3D12Camera::Initialize(const float width, const float height)
+void D3D12Camera::Initialize(const int32 priority, const float width, const float height)
 {
+	SetPriority(priority);
 	Resize(width, height);
 }
 

@@ -25,21 +25,25 @@ D3D12MeshRenderer::~D3D12MeshRenderer()
 	PipelineState = nullptr;
 }
 
-void D3D12MeshRenderer::Initialize(const uniqueid meshId, const uniqueid materialId)
+void D3D12MeshRenderer::Initialize(ComPtr<CID3D12Device> device, const uniqueid meshId, const uniqueid materialId)
 {
+	Device = device;
 	MeshResource = D3D12ResourceManager::GetInstance()->GetResource(meshId);
 	MaterialResource = D3D12ResourceManager::GetInstance()->GetResource(materialId);
 
 	const auto mesh = GetMesh();
 	const auto mat = GetMaterial();
 
-	if(mat->IsAnyTexture())
+	if (mat->IsAnyTexture())
 	{
 		CreateSamplerRootSignature();
-	}else
+	}
+	else
 	{
 		CreateEmptyRootSignature();
 	}
+
+	CreateGraphicsPipelineState();
 
 }
 
@@ -130,7 +134,8 @@ void D3D12MeshRenderer::CreateGraphicsPipelineState()
 	D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
 	SecureZeroMemory(&psoDesc, sizeof(D3D12_GRAPHICS_PIPELINE_STATE_DESC));
 
-	const auto shader = reinterpret_cast<D3D12Shader*>(MaterialResource.get());
+	const auto mat = reinterpret_cast<D3D12Material*>(MaterialResource.get());
+	const auto* shader = mat->GetShader();
 	const auto mesh = reinterpret_cast<D3D12MeshBase*>(MeshResource.get());
 
 	psoDesc.InputLayout = mesh->GetInputLayoutDesc();

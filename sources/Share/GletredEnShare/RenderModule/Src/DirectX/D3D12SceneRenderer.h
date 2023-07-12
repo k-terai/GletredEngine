@@ -7,6 +7,8 @@
 #include "RenderModule/Src/DirectX/D3D12Common.h"
 #include "RenderModule/Src/DirectX/D3D12RenderTarget.h"
 #include "RenderModule/Src/DirectX/D3D12GraphicsCommand.h"
+#include "RenderModule/Src/DirectX/D3D12Camera.h"
+#include "RenderModule/Src/DirectX/D3D12MeshRenderer.h"
 
 namespace GletredEngine
 {
@@ -14,15 +16,20 @@ namespace GletredEngine
 	{
 	public:
 		D3D12SceneRenderer();
-		virtual ~D3D12SceneRenderer() override;
+		~D3D12SceneRenderer() override;
 		void Initialize(ComPtr<CID3D12Device> device,
 			ComPtr<CIDXGIFactory> factory,
-			HWND hwnd);
+			WindowHandle hwnd);
 
 		virtual void Render() = 0;
 		virtual void Terminate();
 
+		std::weak_ptr<D3D12Camera> CreateCamera(int32 priority, int32 width, int32 height);
+		std::weak_ptr<D3D12MeshRenderer> CreateMeshRenderer(uniqueid meshId, uniqueid materialId);
+
 	protected:
+		D3D12Camera* GetHightestPriorityCamera() const;
+
 		ComPtr<CID3D12Device> Device;
 		ComPtr<CIDXGIFactory> Factory;
 		ComPtr<CIDXGISwapChain> SwapChain;
@@ -30,6 +37,8 @@ namespace GletredEngine
 		D3D12RenderTarget SwapChainRenderTarget;
 		uint32 FrameCount;
 		uint32 FrameIndex;
+		std::vector<std::shared_ptr<D3D12Camera>> Cameras;
+		std::vector<std::shared_ptr<D3D12MeshRenderer>> MeshRenderers;
 
 	private:
 		void CreateSwapChain(HWND hwnd);

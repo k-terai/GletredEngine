@@ -14,7 +14,7 @@ D3D12Shader::D3D12Shader()
 
 D3D12Shader::~D3D12Shader()
 {
-
+	
 }
 
 void D3D12Shader::Initialize(const ctstring vsFilePath, const ctstring psFilePath)

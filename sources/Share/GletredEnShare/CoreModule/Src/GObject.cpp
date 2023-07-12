@@ -9,7 +9,7 @@ using namespace GletredEngine;
 
 GObject::GObject() : UniqueId(C_INVALID_UNIQUE_ID)
 {
-	UniqueId = Fnv1Hash32(reinterpret_cast<uint8*>(this), 64);
+	UniqueId = Fnv1Hash32(this, 8);
 }
 
 GObject::~GObject()

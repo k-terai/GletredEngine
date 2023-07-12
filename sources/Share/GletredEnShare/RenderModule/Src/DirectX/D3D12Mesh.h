@@ -55,10 +55,7 @@ namespace GletredEngine
 			const CD3DX12_RANGE readRange(0, 0);  // GPU only.
 
 			const auto r = VertexBuffer->Map(0, &readRange, reinterpret_cast<void**>(&pVertexDataBegin));
-			if (SetExceptionIfFailed(r))
-			{
-				return;
-			}
+			SetExceptionIfFailed(r);
 
 			std::copy(data.begin(), data.end(), pVertexDataBegin);
 			VertexBuffer->Unmap(0, nullptr);
